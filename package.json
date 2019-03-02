@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/sahil-tandon/sahil-tandon.github.io#readme",
   "devDependencies": {
-    "gulp": "^4.0.0"
+    "gulp": "^4.0.0",
+    "gulp-sass": "^4.0.2"
   }
 }
