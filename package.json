@@ -1,0 +1,22 @@
+{
+  "name": "sahil_tandon",
+  "version": "1.0.0",
+  "description": "Sahil Tandon's Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sahil-tandon/sahil-tandon.github.io.git"
+  },
+  "author": "Sahil Tandon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sahil-tandon/sahil-tandon.github.io/issues"
+  },
+  "homepage": "https://github.com/sahil-tandon/sahil-tandon.github.io#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
