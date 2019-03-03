@@ -3,8 +3,5 @@
 # npm
 /node_modules/
 
-# prod
-/dist/
-
 # misc
 package-lock.json
