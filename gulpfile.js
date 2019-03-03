@@ -7,7 +7,9 @@ var gulp = require('gulp'),
     useref = require('gulp-useref'),
     uglify = require('gulp-uglify'),
     gulpIf = require('gulp-if'),
-    cssnano = require('gulp-cssnano');
+    cssnano = require('gulp-cssnano'),
+    del = require('del'),
+    runSequence = require('run-sequence');
 
 /* ==[ Convert Sass to CSS ]== */
 gulp.task('sass', function() {
@@ -25,7 +27,7 @@ gulp.task('browserSync', function() {
   });
 });
 
-/* ==[ Concatenate specified files in HTML ]== */
+/* ==[ Concatenate specified files in HTML and generate prod index.html ]== */
 gulp.task('useref', function() {
   return gulp.src('app/*.html')
     .pipe(useref())
@@ -34,10 +36,32 @@ gulp.task('useref', function() {
     .pipe(gulp.dest(''))
 });
 
+/* ==[ Clean up dist folder ]== */
+gulp.task('cleanDist', function() {
+  return del.sync('dist');
+});
+
 /* ==[ Watch for Changes ]== */
-gulp.task('watch', ['browserSync', 'sass'], function() {
+gulp.task('watch', function() {
   gulp.watch('app/scss/*.scss', ['sass']);
   gulp.watch('*.html', browserSync.reload);
   gulp.watch('app/css/*.css', browserSync.reload);
   gulp.watch('app/js/*.js', browserSync.reload);
+});
+
+/* ==[ Run prod build ]== */
+gulp.task('build', function(callback) {
+  runSequence(
+    'clean:dist',
+    'sass',
+    'useref',
+    callback
+  )
+});
+
+/* ==[ default task ]== */
+gulp.task('default', function(callback) {
+  runSequence(['sass', 'browserSync'], 'watch',
+    callback
+  )
 });
