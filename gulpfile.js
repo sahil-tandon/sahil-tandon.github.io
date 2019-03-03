@@ -31,7 +31,7 @@ gulp.task('useref', function() {
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))     //minify JS files
     .pipe(gulpIf('*.css', cssnano()))     //minify CSS files
-    .pipe(gulp.dest('dist'))
+    .pipe(gulp.dest(''))
 });
 
 /* ==[ Watch for Changes ]== */
