@@ -52,7 +52,7 @@ gulp.task('watch', function() {
 /* ==[ Run prod build ]== */
 gulp.task('build', function(callback) {
   runSequence(
-    'clean:dist',
+    'cleanDist',
     'sass',
     'useref',
     callback
