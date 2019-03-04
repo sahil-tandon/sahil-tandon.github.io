@@ -1,6 +1,30 @@
 /* styles.scss
    ----------------------------- */
 
+$fontFamily : 'Roboto', sans-serif;
+$lightGreen : #8EE4AF;
+$mediumGreen : #5CDB95;
+$darkGreen : #379683;
+$blue : #05386B;
+$grey : #EDF5E1;
+
 body {
-	background: #fdd007;
+	background: $mediumGreen;
+	font-family: $fontFamily;
+	font-size: 16px;
+	line-height: 1.2;
+	color: $blue;
+	padding: 0 50px;
+}
+header {
+	height: 60px;
+	border-bottom: solid black;	
+}
+.logo {
+	font-family: $fontFamily;
+	font-size: 30px;
+	line-height: 1.2;
+	color: $blue;
+	text-decoration: none;
+	padding: 10px 0;
 }

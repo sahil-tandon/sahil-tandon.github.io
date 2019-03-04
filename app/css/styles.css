@@ -1,4 +1,21 @@
 /* styles.scss
    ----------------------------- */
 body {
-  background: #fdd007; }
+  background: #5CDB95;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  line-height: 1.2;
+  color: #05386B;
+  padding: 0 50px; }
+
+header {
+  height: 60px;
+  border-bottom: solid black; }
+
+.logo {
+  font-family: "Roboto", sans-serif;
+  font-size: 30px;
+  line-height: 1.2;
+  color: #05386B;
+  text-decoration: none;
+  padding: 10px 0; }
