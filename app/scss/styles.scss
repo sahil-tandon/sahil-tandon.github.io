@@ -1,30 +1,69 @@
 /* styles.scss
    ----------------------------- */
 
-$fontFamily : 'Roboto', sans-serif;
+@font-face {
+	font-family: "Futura Extra Black";
+	src: url("../fonts/Futura Extra Black font.ttf");	
+}
+@font-face {
+	font-family: "Mosk Thin";
+	src: url("../fonts/Mosk Thin 100.ttf");	
+}
+@font-face {
+	font-family: "Most Regular";
+	src: url("../fonts/Mosk Normal 400.ttf");	
+}
+@font-face {
+	font-family: "Mosk Bold";
+	src: url("../fonts/Mosk Semi-Bold 600.ttf");
+}
+@font-face {
+	font-family: "Mosk Extra Bold";
+	src: url("../fonts/Mosk Extra-Bold 800.ttf");	
+}
+@font-face {
+	font-family: "Mosk Ultra Bold";
+	src: url("../fonts/Mosk Ultra-Bold 900.ttf");
+}
+
+$fontThin : 'Mosk Thin', sans-serif;
+$fontRegular : 'Mosk Regular', sans-serif;
+$fontBold : 'Mosk Bold', sans-serif;
+$fontExtraBold : 'Mosk Extra Bold', sans-serif;
+$fontUltraBold : 'Mosk Ultra Bold', sans-serif;
 $lightGreen : #8EE4AF;
-$mediumGreen : #5CDB95;
-$darkGreen : #379683;
+$colorPrimary : #F2BB05;
+$colorSecondary : #262626;
+$colorTertiary : #5E5E5E;
+$colorFont : #000000;
 $blue : #05386B;
 $grey : #EDF5E1;
+$dotSpace : 22px;
+$dotSize : 1px;
 
 body {
-	background: $mediumGreen;
-	font-family: $fontFamily;
+	background: linear-gradient(90deg, $colorPrimary ($dotSpace - $dotSize), transparent 1%) center,
+				linear-gradient($colorPrimary ($dotSpace - $dotSize), transparent 1%) center,
+				$colorSecondary;
+	background-size: $dotSpace $dotSpace;
+	background-position-x: -$dotSpace/2;
+	background-position-y: -$dotSpace/2;
+	font-family: $fontRegular;
 	font-size: 16px;
 	line-height: 1.2;
-	color: $blue;
+	color: $colorFont;
 	padding: 0 50px;
 }
 header {
-	height: 60px;
-	border-bottom: solid black;	
+	height: 90px;	
 }
 .logo {
-	font-family: $fontFamily;
-	font-size: 30px;
+	display: inline-block;
+	font-family: $fontUltraBold;
+	font-size: 50px;
 	line-height: 1.2;
-	color: $blue;
+	color: $colorSecondary;
 	text-decoration: none;
-	padding: 10px 0;
+	padding: 15px 0;
+	letter-spacing: -3px;
 }

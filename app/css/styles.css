@@ -1,21 +1,49 @@
 /* styles.scss
    ----------------------------- */
+@font-face {
+  font-family: "Futura Extra Black";
+  src: url("../fonts/Futura Extra Black font.ttf"); }
+
+@font-face {
+  font-family: "Mosk Thin";
+  src: url("../fonts/Mosk Thin 100.ttf"); }
+
+@font-face {
+  font-family: "Most Regular";
+  src: url("../fonts/Mosk Normal 400.ttf"); }
+
+@font-face {
+  font-family: "Mosk Bold";
+  src: url("../fonts/Mosk Semi-Bold 600.ttf"); }
+
+@font-face {
+  font-family: "Mosk Extra Bold";
+  src: url("../fonts/Mosk Extra-Bold 800.ttf"); }
+
+@font-face {
+  font-family: "Mosk Ultra Bold";
+  src: url("../fonts/Mosk Ultra-Bold 900.ttf"); }
+
 body {
-  background: #5CDB95;
-  font-family: "Roboto", sans-serif;
+  background: linear-gradient(90deg, #F2BB05 21px, transparent 1%) center, linear-gradient(#F2BB05 21px, transparent 1%) center, #262626;
+  background-size: 22px 22px;
+  background-position-x: -11px;
+  background-position-y: -11px;
+  font-family: "Mosk Regular", sans-serif;
   font-size: 16px;
   line-height: 1.2;
-  color: #05386B;
+  color: #000000;
   padding: 0 50px; }
 
 header {
-  height: 60px;
-  border-bottom: solid black; }
+  height: 90px; }
 
 .logo {
-  font-family: "Roboto", sans-serif;
-  font-size: 30px;
+  display: inline-block;
+  font-family: "Mosk Ultra Bold", sans-serif;
+  font-size: 50px;
   line-height: 1.2;
-  color: #05386B;
+  color: #262626;
   text-decoration: none;
-  padding: 10px 0; }
+  padding: 15px 0;
+  letter-spacing: -3px; }
