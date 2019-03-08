@@ -32,7 +32,9 @@ body {
   font-family: "Mosk Regular", sans-serif;
   font-size: 16px;
   line-height: 1.2;
-  color: #000000;
+  color: #000000; }
+
+.container {
   padding: 0 50px; }
 
 header {
@@ -47,3 +49,16 @@ header {
   text-decoration: none;
   padding: 15px 0;
   letter-spacing: -3px; }
+
+.intro {
+  position: relative;
+  height: calc(100vh - 90px); }
+  .intro .content {
+    position: absolute;
+    font-family: "Mosk Extra Bold", sans-serif;
+    font-size: 50px;
+    color: #000000;
+    text-align: center;
+    top: calc(50% - 90px/2);
+    left: 50%;
+    transform: translate(-50%, -50%); }

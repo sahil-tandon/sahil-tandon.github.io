@@ -52,10 +52,12 @@ body {
 	font-size: 16px;
 	line-height: 1.2;
 	color: $colorFont;
+}
+.container {
 	padding: 0 50px;
 }
 header {
-	height: 90px;	
+	height: 90px;
 }
 .logo {
 	display: inline-block;
@@ -66,4 +68,18 @@ header {
 	text-decoration: none;
 	padding: 15px 0;
 	letter-spacing: -3px;
+}
+.intro {
+	position: relative;
+	height: calc(100vh - 90px);
+	.content {
+		position: absolute;
+		font-family: $fontExtraBold;
+		font-size: 50px;
+		color: $colorFont;
+		text-align: center;		
+		top: calc(50% - 90px/2);
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
 }
