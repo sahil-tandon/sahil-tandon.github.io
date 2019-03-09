@@ -35,7 +35,8 @@ $lightGreen : #8EE4AF;
 $colorPrimary : #F2BB05;
 $colorSecondary : #262626;
 $colorTertiary : #5E5E5E;
-$colorFont : #000000;
+$colorFontPrimary : #000000;
+$colorFontSecondary : #FFFFFF;
 $blue : #05386B;
 $grey : #EDF5E1;
 $dotSpace : 22px;
@@ -51,7 +52,7 @@ body {
 	font-family: $fontRegular;
 	font-size: 16px;
 	line-height: 1.2;
-	color: $colorFont;
+	color: $colorFontPrimary;
 }
 .container {
 	padding: 0 50px;
@@ -76,10 +77,42 @@ header {
 		position: absolute;
 		font-family: $fontExtraBold;
 		font-size: 50px;
-		color: $colorFont;
+		color: $colorFontSecondary;
 		text-align: center;		
 		top: calc(50% - 90px/2);
 		left: 50%;
 		transform: translate(-50%,-50%);
+	}
+}
+.about {
+	position: relative;
+	margin-top: 25vh;
+	.picture {
+		width: 200px;
+		border: 16px double $colorFontPrimary;
+		margin-left: 20%;
+		transform: translateX(-50%);
+		float: left;
+		img {
+			display: block;
+			max-width: 100%;
+		}
+	}
+	.about-head {
+	    position: absolute;
+	    top: 0;
+	    left: calc(20% + 100px);
+	    transform: translate(-50%,-50%);
+	    font-family: $fontExtraBold;
+	    font-size: 50px;
+	    line-height: 1;
+	    color: $colorFontSecondary;
+	}
+	.about-copy {
+		float: left;
+		width: calc(100% - 20% - 200px);
+		font-family: $fontBold;
+	    font-size: 50px;
+	    color: $colorFontPrimary;
 	}
 }

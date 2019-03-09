@@ -57,8 +57,36 @@ header {
     position: absolute;
     font-family: "Mosk Extra Bold", sans-serif;
     font-size: 50px;
-    color: #000000;
+    color: #FFFFFF;
     text-align: center;
     top: calc(50% - 90px/2);
     left: 50%;
     transform: translate(-50%, -50%); }
+
+.about {
+  position: relative;
+  margin-top: 25vh; }
+  .about .picture {
+    width: 200px;
+    border: 16px double #000000;
+    margin-left: 20%;
+    transform: translateX(-50%);
+    float: left; }
+    .about .picture img {
+      display: block;
+      max-width: 100%; }
+  .about .about-head {
+    position: absolute;
+    top: 0;
+    left: calc(20% + 100px);
+    transform: translate(-50%, -50%);
+    font-family: "Mosk Extra Bold", sans-serif;
+    font-size: 50px;
+    line-height: 1;
+    color: #FFFFFF; }
+  .about .about-copy {
+    float: left;
+    width: calc(100% - 20% - 200px);
+    font-family: "Mosk Bold", sans-serif;
+    font-size: 50px;
+    color: #000000; }
