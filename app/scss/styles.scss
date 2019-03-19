@@ -49,6 +49,7 @@ body {
 	background-size: $dotSpace $dotSpace;
 	background-position-x: -$dotSpace/2;
 	background-position-y: -$dotSpace/2;
+	background-attachment: fixed;
 	font-family: $fontRegular;
 	font-size: 16px;
 	line-height: 1.2;
@@ -59,6 +60,11 @@ body {
 }
 header {
 	height: 90px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 999;
 }
 .logo {
 	display: inline-block;
@@ -73,6 +79,7 @@ header {
 .intro {
 	position: relative;
 	height: calc(100vh - 90px);
+	margin-top: 90px;
 	.content {
 		position: absolute;
 		font-family: $fontExtraBold;

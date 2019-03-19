@@ -29,6 +29,7 @@ body {
   background-size: 22px 22px;
   background-position-x: -11px;
   background-position-y: -11px;
+  background-attachment: fixed;
   font-family: "Mosk Regular", sans-serif;
   font-size: 16px;
   line-height: 1.2;
@@ -38,7 +39,12 @@ body {
   padding: 0 50px; }
 
 header {
-  height: 90px; }
+  height: 90px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999; }
 
 .logo {
   display: inline-block;
@@ -52,7 +58,8 @@ header {
 
 .intro {
   position: relative;
-  height: calc(100vh - 90px); }
+  height: calc(100vh - 90px);
+  margin-top: 90px; }
   .intro .content {
     position: absolute;
     font-family: "Mosk Extra Bold", sans-serif;
