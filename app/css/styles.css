@@ -59,7 +59,7 @@ header {
 .intro {
   position: relative;
   height: calc(100vh - 90px);
-  margin-top: 90px;
+  margin: 90px 0 25vh 0;
   min-height: 100vh; }
   .intro .content {
     position: absolute;
@@ -83,7 +83,7 @@ header {
     top: calc(50% - 200px);
     transform: translate(calc(-100% + 50px), -50%); }
   .about .frame-1v {
-    height: 70vh;
+    height: 90vh;
     position: absolute;
     width: 4px;
     background: black;
