@@ -9,7 +9,9 @@ var gulp = require('gulp'),
     gulpIf = require('gulp-if'),
     cssnano = require('gulp-cssnano'),
     del = require('del'),
-    runSequence = require('run-sequence');
+    runSequence = require('run-sequence'),
+    imagemin = require('gulp-imagemin'),
+    cache = require('gulp-cache');
 
 /* ==[ Convert Sass to CSS ]== */
 gulp.task('sass', function() {
@@ -36,6 +38,15 @@ gulp.task('useref', function() {
     .pipe(gulp.dest(''))
 });
 
+/* ==[ Optimize Images and move to dist folder ]== */
+gulp.task('images', function() {
+  return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
+    .pipe(cache(imagemin({      //caching images after optimizing
+      interlaced: true,
+    })))
+    .pipe(gulp.dest('dist/images'))
+});
+
 /* ==[ Clean up dist folder ]== */
 gulp.task('cleanDist', function() {
   return del.sync('dist');
@@ -54,7 +65,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'cleanDist',
     'sass',
-    'useref',
+    ['useref', 'images'],
     callback
   )
 });
