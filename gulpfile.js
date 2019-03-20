@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     del = require('del'),
     runSequence = require('run-sequence'),
     imagemin = require('gulp-imagemin'),
-    cache = require('gulp-cache');
+    cache = require('gulp-cache'),
+    replaceImgSrc = require('gulp-replace-image-src');
 
 /* ==[ Convert Sass to CSS ]== */
 gulp.task('sass', function() {
@@ -31,7 +32,7 @@ gulp.task('browserSync', function() {
 
 /* ==[ Concatenate specified files in HTML and generate prod index.html ]== */
 gulp.task('useref', function() {
-  return gulp.src('app/*.html')
+  return gulp.src('app/index.html')
     .pipe(useref())
     .pipe(gulpIf('*.js', uglify()))     //minify JS files
     .pipe(gulpIf('*.css', cssnano()))     //minify CSS files
@@ -53,6 +54,16 @@ gulp.task('fonts', function() {
   .pipe(gulp.dest('dist/fonts'))
 });
 
+/* ==[ Replace and correct image paths on prod index.html file ]== */
+gulp.task('replaceImgSrc', function() {
+  gulp.src('index.html')
+    .pipe(replaceImgSrc({
+      prependSrc : 'dist/',
+      keepOrigin : true
+    }))
+    .pipe(gulp.dest(''));
+});
+
 /* ==[ Clean up dist folder ]== */
 gulp.task('cleanDist', function() {
   return del.sync('dist');
@@ -72,6 +83,7 @@ gulp.task('build', function(callback) {
     'cleanDist',
     'sass',
     ['useref', 'images', 'fonts'],
+    'replaceImgSrc',
     callback
   )
 });
