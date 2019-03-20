@@ -80,6 +80,7 @@ header {
 	position: relative;
 	height: calc(100vh - 90px);
 	margin-top: 90px;
+	min-height: 100vh;
 	.content {
 		position: absolute;
 		font-family: $fontExtraBold;
@@ -93,13 +94,32 @@ header {
 }
 .about {
 	position: relative;
-	margin-top: 25vh;
+	min-height: 100vh;
+	.frame-1h {
+	    width: 300px;
+	    height: 4px;
+	    background: black;
+	    position: absolute;
+	    left: 80%;
+	    top: calc(50% - 200px);
+	    transform: translate(calc(-100% + 50px), -50%);
+	}
+	.frame-1v {
+	    height: 70vh;
+	    position: absolute;
+	    width: 4px;
+	    background: black;
+	    transform: translate(-50%, calc(-100% + 50px));
+	    left: 80%;
+	    top: calc(50% - 200px);
+	}
 	.picture {
 		width: 200px;
 		border: 16px double $colorFontPrimary;
-		margin-left: 20%;
-		transform: translateX(-50%);
-		float: left;
+		position: absolute;
+		left: 25%;
+		top: 50%;
+		transform: translate(-50%, -50%);		
 		img {
 			display: block;
 			max-width: 100%;
@@ -107,19 +127,27 @@ header {
 	}
 	.about-head {
 	    position: absolute;
-	    top: 0;
-	    left: calc(20% + 100px);
+	    top: calc(50% - 120px);
+	    left: calc(25% + 160px);
 	    transform: translate(-50%,-50%);
 	    font-family: $fontExtraBold;
-	    font-size: 50px;
+	    font-size: 70px;
 	    line-height: 1;
 	    color: $colorFontSecondary;
 	}
 	.about-copy {
-		float: left;
-		width: calc(100% - 20% - 200px);
-		font-family: $fontBold;
-	    font-size: 50px;
+		position: absolute;
+		right: 20%;
+		top: calc(50% - 116px);
+		width: calc(100% - 25% - 20% - 116px);
+		font-family: $fontRegular;
+	    font-size: 20px;
+	    line-height: 1.5;
 	    color: $colorFontPrimary;
+	    padding: 70px 40px 0 40px;
+	    box-sizing: border-box;
+	}
+	.about-copy p {
+		margin-bottom: 10px;
 	}
 }
