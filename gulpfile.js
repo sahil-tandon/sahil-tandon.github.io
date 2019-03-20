@@ -47,6 +47,12 @@ gulp.task('images', function() {
     .pipe(gulp.dest('dist/images'))
 });
 
+/* ==[ Copy fonts to dist folder ]== */
+gulp.task('fonts', function() {
+  return gulp.src('app/fonts/**/*')
+  .pipe(gulp.dest('dist/fonts'))
+});
+
 /* ==[ Clean up dist folder ]== */
 gulp.task('cleanDist', function() {
   return del.sync('dist');
@@ -65,7 +71,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'cleanDist',
     'sass',
-    ['useref', 'images'],
+    ['useref', 'images', 'fonts'],
     callback
   )
 });
