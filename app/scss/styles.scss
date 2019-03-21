@@ -73,7 +73,7 @@ header {
 	line-height: 1.2;
 	color: $colorSecondary;
 	text-decoration: none;
-	padding: 15px 0;
+	padding: 10px 0 20px 0;
 	letter-spacing: -3px;
 }
 .intro {
@@ -160,13 +160,9 @@ header {
 	background-color: transparent;
 	border: 0;  
 	line-height: 0;
-	&:hover {
-		opacity: 0.7;
-	}
+	margin: 15px 0;
+	float: right;
 	&.active {
-		&:hover {
-			opacity: 0.7;
-		}
 		.hamburger-inner,
 		.hamburger-inner::before,
 		.hamburger-inner::after {
@@ -175,7 +171,7 @@ header {
 	}
 	.hamburger-box {
 	  width: 40px;
-	  height: 29px;
+	  height: 30px;
 	  display: inline-block;
 	  position: relative;
 	}
@@ -199,10 +195,10 @@ header {
 	    display: block;
 	  }
 	  &::before {
-	    top: -12px;
+	    top: -10px;
 	  }
 	  &::after {
-	    bottom: -12px;
+	    bottom: -10px;
 	  }
 	}
 	&.hamburger-arrow.active {
