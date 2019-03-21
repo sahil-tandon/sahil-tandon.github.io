@@ -153,7 +153,7 @@ header {
 }
 
 .hamburger {
-	padding: 15px;
+	padding: 15px 0;
 	display: inline-block;
 	cursor: pointer;
 	transition: opacity 0.15s linear, filter 0.15s linear;	
@@ -231,5 +231,22 @@ header {
 	}
 	&.active + .hamburger-menu {
 		transform: translateX(0);
-	}
+	}	
+}
+.hamburger-links {
+	position: fixed;
+    top: 50%;
+    transform: translate(40px, -50%);
+    a {
+    	display: block;
+    	color: #fff;
+    	font-family: $fontBold;
+    	text-decoration: none;
+    	font-size: 32px;
+    	padding: 5px 0;
+    	transition: color 0.4s ease;
+    	&:hover {
+    		color: $colorPrimary;
+    	}
+    }
 }
