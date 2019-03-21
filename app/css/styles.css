@@ -77,7 +77,7 @@ header {
   .about .frame-1h {
     width: 300px;
     height: 4px;
-    background: black;
+    background: #262626;
     position: absolute;
     left: 80%;
     top: calc(50% - 200px);
@@ -86,7 +86,7 @@ header {
     height: 90vh;
     position: absolute;
     width: 4px;
-    background: black;
+    background: #262626;
     transform: translate(-50%, calc(-100% + 50px));
     left: 80%;
     top: calc(50% - 200px); }
@@ -128,8 +128,6 @@ header {
   display: inline-block;
   cursor: pointer;
   transition: opacity 0.15s linear, filter 0.15s linear;
-  background-color: transparent;
-  border: 0;
   line-height: 0;
   margin: 15px 0;
   float: right; }
@@ -152,7 +150,7 @@ header {
       background-color: #262626;
       border-radius: 4px;
       position: absolute;
-      transition: transform 0.15s ease; }
+      transition: transform 0.15s ease, background-color 0.4s ease; }
     .hamburger .hamburger-inner::before, .hamburger .hamburger-inner::after {
       content: "";
       display: block; }
@@ -160,7 +158,25 @@ header {
       top: -10px; }
     .hamburger .hamburger-inner::after {
       bottom: -10px; }
+  .hamburger.hamburger-arrow.active .hamburger-inner, .hamburger.hamburger-arrow.active .hamburger-inner::before, .hamburger.hamburger-arrow.active .hamburger-inner::after {
+    background-color: #fff; }
   .hamburger.hamburger-arrow.active .hamburger-inner::before {
     transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1); }
   .hamburger.hamburger-arrow.active .hamburger-inner::after {
     transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+  .hamburger + .hamburger-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: calc(20% + 2px);
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    z-index: -1;
+    background: linear-gradient(90deg, #262626 21px, transparent 1%) center, linear-gradient(#262626 21px, transparent 1%) center, #F2BB05;
+    background-size: 22px 22px;
+    background-position-x: -11px;
+    background-position-y: -11px;
+    background-attachment: fixed; }
+  .hamburger.active + .hamburger-menu {
+    transform: translateX(0); }
