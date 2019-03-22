@@ -164,6 +164,10 @@ header {
     transform: translate3d(8px, 0, 0) rotate(45deg) scale(0.7, 1); }
   .hamburger.hamburger-arrow.active .hamburger-inner::after {
     transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1); }
+  .hamburger.hamburger-arrow.active:hover .hamburger-inner,
+  .hamburger.hamburger-arrow.active:hover .hamburger-inner::before,
+  .hamburger.hamburger-arrow.active:hover .hamburger-inner::after {
+    background-color: #F2BB05; }
   .hamburger + .hamburger-menu {
     position: fixed;
     top: 0;

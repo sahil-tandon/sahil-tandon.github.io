@@ -213,6 +213,11 @@ header {
 	        transform: translate3d(8px, 0, 0) rotate(-45deg) scale(0.7, 1);
 	      }
 	    }
+	    &:hover .hamburger-inner,
+	    &:hover .hamburger-inner::before,
+	    &:hover .hamburger-inner::after {
+	    	background-color: $colorPrimary;
+	    }
 	}
 	& + .hamburger-menu {
 		position: fixed;
