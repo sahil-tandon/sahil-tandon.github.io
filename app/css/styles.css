@@ -205,3 +205,9 @@ header {
     display: inline-block;
     width: 40px;
     padding: 0 2%; }
+  .hamburger-social path,
+  .hamburger-social rect {
+    transition: fill 0.4s ease; }
+  .hamburger-social a:hover path,
+  .hamburger-social a:hover rect {
+    fill: #F2BB05; }

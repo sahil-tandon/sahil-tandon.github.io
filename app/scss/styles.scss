@@ -260,4 +260,12 @@ header {
 		width: 40px;
 		padding: 0 2%;
 	}
+	path,
+	rect {
+		transition: fill 0.4s ease;
+	}
+	a:hover path,
+	a:hover rect {
+		fill: $colorPrimary;
+	}
 }
