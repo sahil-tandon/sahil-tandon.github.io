@@ -195,3 +195,13 @@ header {
     transition: color 0.4s ease; }
     .hamburger-links a:hover {
       color: #F2BB05; }
+
+.hamburger-social {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center; }
+  .hamburger-social li {
+    display: inline-block;
+    width: 40px;
+    padding: 0 2%; }

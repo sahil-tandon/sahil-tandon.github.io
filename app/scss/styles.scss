@@ -250,3 +250,14 @@ header {
     	}
     }
 }
+.hamburger-social {
+	position: absolute;
+	bottom: 40px;
+	width: 100%;
+	text-align: center;
+	li {
+		display: inline-block;
+		width: 40px;
+		padding: 0 2%;
+	}
+}
