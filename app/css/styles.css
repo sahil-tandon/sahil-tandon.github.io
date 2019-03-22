@@ -115,11 +115,14 @@ header {
     top: calc(50% - 116px);
     width: calc(100% - 25% - 20% - 116px);
     font-family: "Mosk Regular", sans-serif;
+    font-weight: bold;
     font-size: 20px;
     line-height: 1.5;
     color: #000000;
-    padding: 70px 40px 0 40px;
-    box-sizing: border-box; }
+    padding: 56px 40px 0 40px;
+    box-sizing: border-box;
+    word-spacing: 0.1em;
+    letter-spacing: 0.05em; }
   .about .about-copy p {
     margin-bottom: 10px; }
 
