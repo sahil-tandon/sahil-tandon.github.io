@@ -79,7 +79,7 @@ header {
 .intro {
 	position: relative;
 	height: calc(100vh - 90px);
-	margin: 90px 0 25vh 0;
+	margin: 90px 0 0 0;
 	min-height: 100vh;
 	.content {
 		position: absolute;
@@ -90,6 +90,37 @@ header {
 		top: calc(50% - 90px/2);
 		left: 50%;
 		transform: translate(-50%,-50%);
+	}
+}
+.divider {
+	position: relative;
+	width: 100%;
+	height: 100vh;
+	.frame-v {
+		position: absolute;
+		width: 4px;
+		height: 135vh;
+		right: 20%;
+		bottom: 0;
+		background: #262626;
+		transform: translate(50%, 0);
+	}
+	.frame-h {
+		position: absolute;
+		width: 300px;
+		height: 4px;
+		background: #262626;
+		right: 20%;
+		bottom: 0;
+		transform: translate(50px,-50px);
+	}
+	.frame-right {
+		right: 20%;
+		bottom: 0;
+	}
+	.frame-left {
+		left: 20%;
+		bottom: 0;
 	}
 }
 #about {
@@ -112,37 +143,41 @@ header {
 	    transform: translate(-50%, calc(-100% + 50px));
 	    left: 80%;
 	    top: calc(50% - 200px);
-	}	
+	}
 	.about-head {	    
 	    font-family: $fontExtraBold;
 	    font-size: 70px;
 	    line-height: 1;
 	    color: $colorFontSecondary;
 	    margin: 0 20%;
+	}	
+	.about-content {
+		box-sizing: border-box;
+	    margin: 0 20%;
+	    padding-top: 30px;
 	}
 	.profile-picture {
-		display: inline-block;
+		float: left;
 		width: 200px;
-		border: 16px double $colorFontPrimary;		
+		border: 16px double $colorFontPrimary;
 		img {
 			display: block;
 			max-width: 100%;
 		}
 	}
-	.about-content {
-		display: inline-block;
-	}
 	.about-copy {		
+		float: right;
+		width: calc(100% - 232px);
+		padding-left: 30px;
+		box-sizing: border-box;
 		font-family: $fontRegular;
 		font-weight: bold;
 	    font-size: 20px;
 	    line-height: 1.5;
 	    color: $colorFontPrimary;	    
 	    word-spacing: 0.1em;
-	    letter-spacing: 0.05em;
-	    box-sizing: border-box;
-	    margin: 0 20%;
-	}	
+	    letter-spacing: 0.05em;	   
+	}
 	.about-copy p {
 		margin-bottom: 10px;
 	}
