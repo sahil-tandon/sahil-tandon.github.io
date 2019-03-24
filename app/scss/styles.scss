@@ -92,7 +92,7 @@ header {
 		transform: translate(-50%,-50%);
 	}
 }
-.about {
+#about {
 	position: relative;
 	min-height: 100vh;
 	.frame-1h {
@@ -112,44 +112,37 @@ header {
 	    transform: translate(-50%, calc(-100% + 50px));
 	    left: 80%;
 	    top: calc(50% - 200px);
+	}	
+	.about-head {	    
+	    font-family: $fontExtraBold;
+	    font-size: 70px;
+	    line-height: 1;
+	    color: $colorFontSecondary;
+	    margin: 0 20%;
 	}
-	.picture {
+	.profile-picture {
+		display: inline-block;
 		width: 200px;
-		border: 16px double $colorFontPrimary;
-		position: absolute;
-		left: 25%;
-		top: 50%;
-		transform: translate(-50%, -50%);		
+		border: 16px double $colorFontPrimary;		
 		img {
 			display: block;
 			max-width: 100%;
 		}
 	}
-	.about-head {
-	    position: absolute;
-	    top: calc(50% - 120px);
-	    left: calc(25% + 160px);
-	    transform: translate(-50%,-50%);
-	    font-family: $fontExtraBold;
-	    font-size: 70px;
-	    line-height: 1;
-	    color: $colorFontSecondary;
+	.about-content {
+		display: inline-block;
 	}
-	.about-copy {
-		position: absolute;
-		right: 20%;
-		top: calc(50% - 116px);
-		width: calc(100% - 25% - 20% - 116px);
+	.about-copy {		
 		font-family: $fontRegular;
 		font-weight: bold;
 	    font-size: 20px;
 	    line-height: 1.5;
-	    color: $colorFontPrimary;
-	    padding: 56px 40px 0 40px;
-	    box-sizing: border-box;
+	    color: $colorFontPrimary;	    
 	    word-spacing: 0.1em;
 	    letter-spacing: 0.05em;
-	}
+	    box-sizing: border-box;
+	    margin: 0 20%;
+	}	
 	.about-copy p {
 		margin-bottom: 10px;
 	}
@@ -159,7 +152,7 @@ header {
 	padding: 15px 0;
 	display: inline-block;
 	cursor: pointer;
-	transition: opacity 0.15s linear, filter 0.15s linear;	
+	transition: opacity 0.15s linear, filter 0.15s linear;
 	line-height: 0;
 	margin: 15px 0;
 	float: right;
@@ -275,5 +268,27 @@ header {
 	a:hover path,
 	a:hover rect {
 		fill: $colorPrimary;
+	}
+}
+.education {
+	position: relative;
+	min-height: 100vh;
+	.frame-2v {
+		width: 300px;
+	    height: 4px;
+	    background: #262626;
+	    position: absolute;
+	    left: 80%;
+	    top: calc(50% - 200px);
+	    transform: translate(calc(-100% + 50px), -50%);
+	}
+	.frame-2h {
+		height: 90vh;
+	    position: absolute;
+	    width: 4px;
+	    background: #262626;
+	    transform: translate(-50%, calc(-100% + 50px));
+	    left: 80%;
+	    top: calc(50% - 200px);
 	}
 }

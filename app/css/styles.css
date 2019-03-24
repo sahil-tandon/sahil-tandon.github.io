@@ -71,10 +71,10 @@ header {
     left: 50%;
     transform: translate(-50%, -50%); }
 
-.about {
+#about {
   position: relative;
   min-height: 100vh; }
-  .about .frame-1h {
+  #about .frame-1h {
     width: 300px;
     height: 4px;
     background: #262626;
@@ -82,7 +82,7 @@ header {
     left: 80%;
     top: calc(50% - 200px);
     transform: translate(calc(-100% + 50px), -50%); }
-  .about .frame-1v {
+  #about .frame-1v {
     height: 90vh;
     position: absolute;
     width: 4px;
@@ -90,40 +90,32 @@ header {
     transform: translate(-50%, calc(-100% + 50px));
     left: 80%;
     top: calc(50% - 200px); }
-  .about .picture {
-    width: 200px;
-    border: 16px double #000000;
-    position: absolute;
-    left: 25%;
-    top: 50%;
-    transform: translate(-50%, -50%); }
-    .about .picture img {
-      display: block;
-      max-width: 100%; }
-  .about .about-head {
-    position: absolute;
-    top: calc(50% - 120px);
-    left: calc(25% + 160px);
-    transform: translate(-50%, -50%);
+  #about .about-head {
     font-family: "Mosk Extra Bold", sans-serif;
     font-size: 70px;
     line-height: 1;
-    color: #FFFFFF; }
-  .about .about-copy {
-    position: absolute;
-    right: 20%;
-    top: calc(50% - 116px);
-    width: calc(100% - 25% - 20% - 116px);
+    color: #FFFFFF;
+    margin: 0 20%; }
+  #about .profile-picture {
+    display: inline-block;
+    width: 200px;
+    border: 16px double #000000; }
+    #about .profile-picture img {
+      display: block;
+      max-width: 100%; }
+  #about .about-content {
+    display: inline-block; }
+  #about .about-copy {
     font-family: "Mosk Regular", sans-serif;
     font-weight: bold;
     font-size: 20px;
     line-height: 1.5;
     color: #000000;
-    padding: 56px 40px 0 40px;
-    box-sizing: border-box;
     word-spacing: 0.1em;
-    letter-spacing: 0.05em; }
-  .about .about-copy p {
+    letter-spacing: 0.05em;
+    box-sizing: border-box;
+    margin: 0 20%; }
+  #about .about-copy p {
     margin-bottom: 10px; }
 
 .hamburger {
@@ -218,3 +210,23 @@ header {
   .hamburger-social a:hover path,
   .hamburger-social a:hover rect {
     fill: #F2BB05; }
+
+.education {
+  position: relative;
+  min-height: 100vh; }
+  .education .frame-2v {
+    width: 300px;
+    height: 4px;
+    background: #262626;
+    position: absolute;
+    left: 80%;
+    top: calc(50% - 200px);
+    transform: translate(calc(-100% + 50px), -50%); }
+  .education .frame-2h {
+    height: 90vh;
+    position: absolute;
+    width: 4px;
+    background: #262626;
+    transform: translate(-50%, calc(-100% + 50px));
+    left: 80%;
+    top: calc(50% - 200px); }
