@@ -125,25 +125,6 @@ header {
 }
 #about {
 	position: relative;
-	min-height: 100vh;
-	.frame-1h {
-	    width: 300px;
-	    height: 4px;
-	    background: #262626;
-	    position: absolute;
-	    left: 80%;
-	    top: calc(50% - 200px);
-	    transform: translate(calc(-100% + 50px), -50%);
-	}
-	.frame-1v {
-	    height: 90vh;
-	    position: absolute;
-	    width: 4px;
-	    background: #262626;
-	    transform: translate(-50%, calc(-100% + 50px));
-	    left: 80%;
-	    top: calc(50% - 200px);
-	}
 	.about-head {	    
 	    font-family: $fontExtraBold;
 	    font-size: 70px;
