@@ -28,7 +28,7 @@ html {
   scroll-behavior: smooth; }
 
 body {
-  background: linear-gradient(90deg, #F2BB05 21px, transparent 1%) center, linear-gradient(#F2BB05 21px, transparent 1%) center, #262626;
+  background: linear-gradient(90deg, #F2BB05 21px, transparent 1%) center, linear-gradient(#F2BB05 21px, transparent 1%) center, #000000;
   background-size: 22px 22px;
   background-position-x: -11px;
   background-position-y: -11px;
@@ -54,7 +54,7 @@ header {
   font-family: "Mosk Ultra Bold", sans-serif;
   font-size: 50px;
   line-height: 1.2;
-  color: #262626;
+  color: #000000;
   text-decoration: none;
   padding: 10px 0 20px 0;
   letter-spacing: -3px; }
