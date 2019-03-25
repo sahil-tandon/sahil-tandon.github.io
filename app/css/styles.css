@@ -146,6 +146,10 @@ header {
       margin-bottom: 10px; }
     #about .about-copy .quick-links a {
       color: #000; }
+  #about + .divider {
+    height: 50vh; }
+    #about + .divider .frame-v {
+      height: 70vh; }
 
 .hamburger {
   padding: 15px 0;

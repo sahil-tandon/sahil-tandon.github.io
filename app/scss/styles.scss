@@ -183,6 +183,12 @@ header {
 			color: #000;
 		}
 	}
+	& + .divider {
+		height: 50vh;
+		.frame-v {
+			height: 70vh;
+		}
+	}	
 }
 
 .hamburger {
