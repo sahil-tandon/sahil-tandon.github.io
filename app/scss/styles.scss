@@ -42,6 +42,9 @@ $grey : #EDF5E1;
 $dotSpace : 22px;
 $dotSize : 1px;
 
+html {
+	scroll-behavior: smooth;
+}
 body {
 	background: linear-gradient(90deg, $colorPrimary ($dotSpace - $dotSize), transparent 1%) center,
 				linear-gradient($colorPrimary ($dotSpace - $dotSize), transparent 1%) center,
@@ -76,7 +79,7 @@ header {
 	padding: 10px 0 20px 0;
 	letter-spacing: -3px;
 }
-.intro {
+#intro {
 	position: relative;
 	height: calc(100vh - 90px);
 	margin: 90px 0 0 0;
@@ -131,7 +134,7 @@ header {
 }
 #about {
 	position: relative;
-	.about-head {	    
+	.about-head {
 	    font-family: $fontExtraBold;
 	    font-size: 70px;
 	    line-height: 1;
