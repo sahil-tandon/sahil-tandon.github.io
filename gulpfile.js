@@ -54,6 +54,12 @@ gulp.task('fonts', function() {
   .pipe(gulp.dest('dist/fonts'))
 });
 
+/* ==[ Copy resume to dist folder ]== */
+gulp.task('resume', function() {
+  return gulp.src('app/files/**/*')
+  .pipe(gulp.dest('dist/files'))
+});
+
 /* ==[ Replace and correct image paths on prod index.html file ]== */
 gulp.task('replaceImgSrc', function() {
   gulp.src('index.html')
@@ -82,7 +88,7 @@ gulp.task('build', function(callback) {
   runSequence(
     'cleanDist',
     'sass',
-    ['useref', 'images', 'fonts'],
+    ['useref', 'images', 'fonts', 'resume'],
     'replaceImgSrc',
     callback
   )
