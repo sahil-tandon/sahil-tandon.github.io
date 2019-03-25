@@ -129,13 +129,23 @@ header {
     box-sizing: border-box;
     font-family: "Mosk Regular", sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.5;
     color: #000000;
     word-spacing: 0.1em;
     letter-spacing: 0.05em; }
-  #about .about-copy p {
-    margin-bottom: 10px; }
+    #about .about-copy p {
+      margin-bottom: 10px; }
+    #about .about-copy .availability {
+      margin: 30px 0;
+      font-style: italic; }
+    #about .about-copy .quick-links {
+      list-style-type: disc;
+      list-style-position: inside; }
+    #about .about-copy .quick-links li {
+      margin-bottom: 10px; }
+    #about .about-copy .quick-links a {
+      color: #000; }
 
 .hamburger {
   padding: 15px 0;

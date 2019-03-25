@@ -160,14 +160,28 @@ header {
 		box-sizing: border-box;
 		font-family: $fontRegular;
 		font-weight: bold;
-	    font-size: 20px;
+	    font-size: 16px;
 	    line-height: 1.5;
 	    color: $colorFontPrimary;	    
 	    word-spacing: 0.1em;
 	    letter-spacing: 0.05em;	   
-	}
-	.about-copy p {
-		margin-bottom: 10px;
+	    p {
+			margin-bottom: 10px;
+		}
+		.availability {
+			margin: 30px 0;
+			font-style: italic;
+		}
+		.quick-links {
+			list-style-type: disc;
+			list-style-position: inside;
+		}
+		.quick-links li {
+			margin-bottom: 10px;
+		}
+		.quick-links a {
+			color: #000;
+		}
 	}
 }
 
