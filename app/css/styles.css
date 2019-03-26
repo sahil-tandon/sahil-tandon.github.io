@@ -247,22 +247,51 @@ header {
   .hamburger-social a:hover rect {
     fill: #F2BB05; }
 
-.education {
-  position: relative;
-  min-height: 100vh; }
-  .education .frame-2v {
-    width: 300px;
-    height: 4px;
-    background: #262626;
-    position: absolute;
-    left: 80%;
-    top: calc(50% - 200px);
-    transform: translate(calc(-100% + 50px), -50%); }
-  .education .frame-2h {
-    height: 90vh;
-    position: absolute;
-    width: 4px;
-    background: #262626;
-    transform: translate(-50%, calc(-100% + 50px));
-    left: 80%;
-    top: calc(50% - 200px); }
+#education {
+  position: relative; }
+  #education .education-head {
+    font-family: "Mosk Extra Bold", sans-serif;
+    font-size: 70px;
+    line-height: 1;
+    color: #FFFFFF;
+    margin: 0 20%;
+    text-align: right; }
+  #education .education-content {
+    box-sizing: border-box;
+    margin: 0 20%;
+    padding-top: 30px;
+    overflow: hidden; }
+  #education .education-item {
+    overflow: hidden; }
+    #education .education-item .education-picture {
+      position: relative;
+      float: right;
+      width: 200px;
+      height: 200px;
+      border: 16px double #000000; }
+      #education .education-item .education-picture img {
+        position: absolute;
+        max-width: 100%;
+        top: 50%;
+        transform: translateY(-50%); }
+    #education .education-item .education-copy {
+      width: calc(100% - 232px);
+      float: left;
+      font-family: "Mosk Thin", sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #000000;
+      word-spacing: 0.1em;
+      letter-spacing: 0.05em;
+      padding-right: 30px;
+      box-sizing: border-box; }
+      #education .education-item .education-copy .school {
+        font-family: "Mosk Regular", sans-serif; }
+    #education .education-item:last-child {
+      padding-top: 50px; }
+      #education .education-item:last-child .education-picture {
+        float: left; }
+      #education .education-item:last-child .education-copy {
+        float: right;
+        padding-left: 30px; }

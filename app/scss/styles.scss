@@ -318,25 +318,62 @@ header {
 		fill: $colorPrimary;
 	}
 }
-.education {
+#education {	
 	position: relative;
-	min-height: 100vh;
-	.frame-2v {
-		width: 300px;
-	    height: 4px;
-	    background: #262626;
-	    position: absolute;
-	    left: 80%;
-	    top: calc(50% - 200px);
-	    transform: translate(calc(-100% + 50px), -50%);
+	.education-head {
+	    font-family: $fontExtraBold;
+	    font-size: 70px;
+	    line-height: 1;
+	    color: $colorFontSecondary;
+	    margin: 0 20%;
+	    text-align: right;	    
 	}
-	.frame-2h {
-		height: 90vh;
-	    position: absolute;
-	    width: 4px;
-	    background: #262626;
-	    transform: translate(-50%, calc(-100% + 50px));
-	    left: 80%;
-	    top: calc(50% - 200px);
+	.education-content {
+		box-sizing: border-box;
+	    margin: 0 20%;
+	    padding-top: 30px;
+	    overflow: hidden;	    
 	}
+	.education-item {
+		overflow: hidden;
+		.education-picture {
+			position: relative;
+			float: right;
+			width: 200px;
+			height: 200px;
+			border: 16px double $colorSecondary;
+			img {
+				position: absolute;
+				max-width: 100%;
+				top: 50%;
+				transform: translateY(-50%);
+			}
+		}
+		.education-copy {
+			width: calc(100% - 232px);
+			float: left;
+			font-family: $fontThin;
+			font-weight: bold;
+		    font-size: 16px;
+		    line-height: 1.5;
+		    color: $colorFontPrimary;	    
+		    word-spacing: 0.1em;
+		    letter-spacing: 0.05em;
+		    padding-right: 30px;
+		    box-sizing: border-box;
+		    .school {
+		    	font-family: $fontRegular;
+		    }
+		}
+		&:last-child {
+			padding-top: 50px;
+			.education-picture {
+				float: left;
+			}
+			.education-copy {
+				float: right;
+				padding-left: 30px; 
+			}
+		}
+	}		
 }
