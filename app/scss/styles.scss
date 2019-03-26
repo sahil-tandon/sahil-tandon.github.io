@@ -167,7 +167,7 @@ header {
 			width: calc(100% - 232px);
 			padding-left: 30px;
 			box-sizing: border-box;
-			font-family: $fontRegular;
+			font-family: $fontThin;
 			font-weight: bold;
 		    font-size: 16px;
 		    line-height: 1.5;
@@ -178,6 +178,7 @@ header {
 				margin-bottom: 10px;
 			}
 			.availability {
+				font-family: $fontRegular;
 				margin: 30px 0;
 				font-style: italic;
 			}
