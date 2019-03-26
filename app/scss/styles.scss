@@ -94,15 +94,22 @@ header {
 		left: 50%;
 		transform: translate(-50%,-50%);
 	}
+	& + .divider {
+		height: 70vh;
+		.frame-v {
+			height: 100vh;
+		}
+	}
 }
 .divider {
 	position: relative;
 	width: 100%;
-	height: 70vh;
+	/*height: 70vh;*/
+	height: 100px;
 	.frame-v {
 		position: absolute;
 		width: 4px;
-		height: 100vh;
+		height: calc(100px + 100px);
 		right: 20%;
 		bottom: 0;
 		background: #000;
@@ -185,13 +192,7 @@ header {
 				color: #000;
 			}
 		}
-	}	
-	& + .divider {
-		height: 50vh;
-		.frame-v {
-			height: 70vh;
-		}
-	}	
+	}		
 }
 
 .hamburger-toggle {
