@@ -296,4 +296,5 @@ header {
         float: left; }
       #education .education-item:last-child .education-copy {
         float: right;
-        padding-left: 30px; }
+        padding-left: 30px;
+        padding-right: 0; }
