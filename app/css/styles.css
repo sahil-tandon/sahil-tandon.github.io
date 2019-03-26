@@ -118,37 +118,37 @@ header {
     margin: 0 20%;
     padding-top: 30px;
     overflow: hidden; }
-  #about .profile-picture {
-    float: left;
-    width: 200px;
-    border: 16px double #000000; }
-    #about .profile-picture img {
-      display: block;
-      max-width: 100%; }
-  #about .about-copy {
-    float: right;
-    width: calc(100% - 232px);
-    padding-left: 30px;
-    box-sizing: border-box;
-    font-family: "Mosk Regular", sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 1.5;
-    color: #000000;
-    word-spacing: 0.1em;
-    letter-spacing: 0.05em; }
-    #about .about-copy p {
-      margin-bottom: 10px; }
-    #about .about-copy .availability {
-      margin: 30px 0;
-      font-style: italic; }
-    #about .about-copy .quick-links {
-      list-style-type: disc;
-      list-style-position: inside; }
-    #about .about-copy .quick-links li {
-      margin-bottom: 10px; }
-    #about .about-copy .quick-links a {
-      color: #000; }
+    #about .about-content .profile-picture {
+      float: left;
+      width: 200px;
+      border: 16px double #000000; }
+      #about .about-content .profile-picture img {
+        display: block;
+        max-width: 100%; }
+    #about .about-content .about-copy {
+      float: right;
+      width: calc(100% - 232px);
+      padding-left: 30px;
+      box-sizing: border-box;
+      font-family: "Mosk Regular", sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #000000;
+      word-spacing: 0.1em;
+      letter-spacing: 0.05em; }
+      #about .about-content .about-copy p {
+        margin-bottom: 10px; }
+      #about .about-content .about-copy .availability {
+        margin: 30px 0;
+        font-style: italic; }
+      #about .about-content .about-copy .quick-links {
+        list-style-type: disc;
+        list-style-position: inside; }
+      #about .about-content .about-copy .quick-links li {
+        margin-bottom: 10px; }
+      #about .about-content .about-copy .quick-links a {
+        color: #000; }
   #about + .divider {
     height: 50vh; }
     #about + .divider .frame-v {

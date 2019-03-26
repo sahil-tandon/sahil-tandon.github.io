@@ -146,46 +146,46 @@ header {
 	    margin: 0 20%;
 	    padding-top: 30px;
 	    overflow: hidden;
-	}
-	.profile-picture {
-		float: left;
-		width: 200px;
-		border: 16px double $colorFontPrimary;
-		img {
-			display: block;
-			max-width: 100%;
+	    .profile-picture {
+			float: left;
+			width: 200px;
+			border: 16px double $colorFontPrimary;
+			img {
+				display: block;
+				max-width: 100%;
+			}
 		}
-	}
-	.about-copy {		
-		float: right;
-		width: calc(100% - 232px);
-		padding-left: 30px;
-		box-sizing: border-box;
-		font-family: $fontRegular;
-		font-weight: bold;
-	    font-size: 16px;
-	    line-height: 1.5;
-	    color: $colorFontPrimary;	    
-	    word-spacing: 0.1em;
-	    letter-spacing: 0.05em;	   
-	    p {
-			margin-bottom: 10px;
+		.about-copy {		
+			float: right;
+			width: calc(100% - 232px);
+			padding-left: 30px;
+			box-sizing: border-box;
+			font-family: $fontRegular;
+			font-weight: bold;
+		    font-size: 16px;
+		    line-height: 1.5;
+		    color: $colorFontPrimary;	    
+		    word-spacing: 0.1em;
+		    letter-spacing: 0.05em;	   
+		    p {
+				margin-bottom: 10px;
+			}
+			.availability {
+				margin: 30px 0;
+				font-style: italic;
+			}
+			.quick-links {
+				list-style-type: disc;
+				list-style-position: inside;
+			}
+			.quick-links li {
+				margin-bottom: 10px;
+			}
+			.quick-links a {
+				color: #000;
+			}
 		}
-		.availability {
-			margin: 30px 0;
-			font-style: italic;
-		}
-		.quick-links {
-			list-style-type: disc;
-			list-style-position: inside;
-		}
-		.quick-links li {
-			margin-bottom: 10px;
-		}
-		.quick-links a {
-			color: #000;
-		}
-	}
+	}	
 	& + .divider {
 		height: 50vh;
 		.frame-v {
