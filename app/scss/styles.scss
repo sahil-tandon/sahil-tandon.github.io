@@ -392,6 +392,9 @@ header {
 	    margin: 0 20%;
 	    padding-top: 30px;
 	    overflow: hidden;
+	    .experience-organization {
+	    	overflow: hidden;
+	    }
 	    .experience-picture {
 			float: left;
 			width: 200px;
@@ -400,6 +403,8 @@ header {
 			img {
 				display: block;
 				max-width: 100%;
+				box-sizing: border-box;
+				padding: 52px 12px;
 			}
 		}
 		.experience-caption {
@@ -417,6 +422,24 @@ header {
 		    p {
 		    	margin-bottom: 10px;
 		    }
+		}
+		.experience-item {
+			font-family: $fontThin;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 1.5;
+			color: $colorFontPrimary;
+			word-spacing: 0.1em;
+			letter-spacing: 0.05em;
+			padding: 10px 0;
+			.designation,
+			.time-frame {
+				font-family: $fontRegular;
+			}
+			ul {
+				list-style-type: disc;
+				list-style-position: inside;
+			}
 		}
 	}	
 }
