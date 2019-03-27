@@ -298,3 +298,39 @@ header {
         float: right;
         padding-left: 30px;
         padding-right: 0; }
+
+#experience {
+  position: relative; }
+  #experience .experience-head {
+    font-family: "Mosk Extra Bold", sans-serif;
+    font-size: 70px;
+    line-height: 1;
+    color: #FFFFFF;
+    margin: 0 20%; }
+  #experience .experience-content {
+    box-sizing: border-box;
+    margin: 0 20%;
+    padding-top: 30px;
+    overflow: hidden; }
+    #experience .experience-content .experience-picture {
+      float: left;
+      width: 200px;
+      height: 200px;
+      border: 16px double #000000; }
+      #experience .experience-content .experience-picture img {
+        display: block;
+        max-width: 100%; }
+    #experience .experience-content .experience-caption {
+      float: right;
+      width: calc(100% - 232px);
+      padding-left: 30px;
+      box-sizing: border-box;
+      font-family: "Mosk Thin", sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #000000;
+      word-spacing: 0.1em;
+      letter-spacing: 0.05em; }
+      #experience .experience-content .experience-caption p {
+        margin-bottom: 10px; }

@@ -378,3 +378,45 @@ header {
 		}
 	}		
 }
+#experience {	
+	position: relative;
+	.experience-head {
+	    font-family: $fontExtraBold;
+	    font-size: 70px;
+	    line-height: 1;
+	    color: $colorFontSecondary;
+	    margin: 0 20%;
+	}
+	.experience-content {
+		box-sizing: border-box;
+	    margin: 0 20%;
+	    padding-top: 30px;
+	    overflow: hidden;
+	    .experience-picture {
+			float: left;
+			width: 200px;
+			height: 200px;
+			border: 16px double $colorFontPrimary;
+			img {
+				display: block;
+				max-width: 100%;
+			}
+		}
+		.experience-caption {
+			float: right;
+			width: calc(100% - 232px);
+			padding-left: 30px;
+			box-sizing: border-box;
+			font-family: $fontThin;
+			font-weight: bold;
+		    font-size: 16px;
+		    line-height: 1.5;
+		    color: $colorFontPrimary;	    
+		    word-spacing: 0.1em;
+		    letter-spacing: 0.05em;
+		    p {
+		    	margin-bottom: 10px;
+		    }
+		}
+	}	
+}
