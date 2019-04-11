@@ -157,7 +157,27 @@ header {
       #about .about-content .about-copy .quick-links li {
         margin-bottom: 10px; }
       #about .about-content .about-copy .quick-links a {
-        color: #000; }
+        position: relative;
+        color: #000;
+        text-decoration: none;
+        padding: 3px 4px;
+        font-family: "Mosk Regular", sans-serif;
+        letter-spacing: 0.1em;
+        transition: color 0.3s ease; }
+      #about .about-content .about-copy .quick-links a:hover {
+        color: #F2BB05; }
+      #about .about-content .about-copy .quick-links a::after {
+        content: '';
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        transition: height 0.3s ease;
+        z-index: -1;
+        background: #000; }
+      #about .about-content .about-copy .quick-links a:hover::after {
+        height: 100%; }
 
 .hamburger-toggle {
   padding: 15px 0;
