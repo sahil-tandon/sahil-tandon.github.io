@@ -38,6 +38,9 @@ body {
   line-height: 1.2;
   color: #000000; }
 
+.hidden {
+  display: none; }
+
 .container {
   padding: 0 50px; }
 
