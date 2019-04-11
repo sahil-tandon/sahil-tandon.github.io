@@ -325,7 +325,8 @@ header {
     	}
     }
 }
-.hamburger-social {
+.hamburger-social,
+.footer-social {
 	position: absolute;
 	bottom: 40px;
 	width: 100%;
@@ -471,6 +472,7 @@ header {
 }
 
 footer {
+	position: relative;
 	background: linear-gradient(90deg, #262626 21px, transparent 1%) center, linear-gradient(#262626 21px, transparent 1%) center, #F2BB05;
 	background-size: 22px 22px;
 	background-position-x: -11px;
@@ -478,7 +480,8 @@ footer {
     background-attachment: fixed;
     text-align: center;
     margin-top: 50px;
-    padding: 50px;    
+    padding: 50px;
+    z-index: 1;
     .contact-pre-text {
     	font-family: $fontThin;
 		font-weight: bold;
@@ -495,7 +498,7 @@ footer {
 	    font-size: 70px;
 	    line-height: 1;
 	    color: $colorFontSecondary;
-	    padding: 20px 0;
+	    padding: 20px 0 30px 0;
 	    &::after,
 	    &::before {
 	    	content: '';
@@ -514,4 +517,41 @@ footer {
 	    	margin: 0 30px 0 0;
     	}
     }
+    .contact-info a {
+		position: relative;
+		color: #fff;
+		text-decoration: none;
+		padding: 3px 6px;
+		font-family: $fontRegular;
+		font-weight: bold;
+		letter-spacing: 0.1em;
+		transition: color 0.3s ease;
+		font-size: 20px;
+		margin: 0 10px;
+		&:hover {
+			color: $colorSecondary;
+		}
+		&::after {
+			content: '';
+			position: absolute;
+			height: 3px;
+			width: 100%;
+			left: 0;
+			bottom: 0;
+			transition: height 0.3s ease;
+			z-index: -1;
+			background: #fff;
+		}
+		&:hover::after {
+			height: 100%;
+		}
+	}
+	.footer-social {
+		position: relative;
+		bottom: auto;
+		margin-top: 40px;
+		li {
+			padding: 0 10px;
+		}
+	}
 }

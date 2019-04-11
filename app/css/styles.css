@@ -256,20 +256,26 @@ header {
     .hamburger-links a:hover {
       color: #F2BB05; }
 
-.hamburger-social {
+.hamburger-social,
+.footer-social {
   position: absolute;
   bottom: 40px;
   width: 100%;
   text-align: center; }
-  .hamburger-social li {
+  .hamburger-social li,
+  .footer-social li {
     display: inline-block;
     width: 40px;
     padding: 0 2%; }
   .hamburger-social path,
-  .hamburger-social rect {
+  .hamburger-social rect,
+  .footer-social path,
+  .footer-social rect {
     transition: fill 0.4s ease; }
   .hamburger-social a:hover path,
-  .hamburger-social a:hover rect {
+  .hamburger-social a:hover rect,
+  .footer-social a:hover path,
+  .footer-social a:hover rect {
     fill: #F2BB05; }
 
 #education {
@@ -378,6 +384,7 @@ header {
         list-style-position: inside; }
 
 footer {
+  position: relative;
   background: linear-gradient(90deg, #262626 21px, transparent 1%) center, linear-gradient(#262626 21px, transparent 1%) center, #F2BB05;
   background-size: 22px 22px;
   background-position-x: -11px;
@@ -385,7 +392,8 @@ footer {
   background-attachment: fixed;
   text-align: center;
   margin-top: 50px;
-  padding: 50px; }
+  padding: 50px;
+  z-index: 1; }
   footer .contact-pre-text {
     font-family: "Mosk Thin", sans-serif;
     font-weight: bold;
@@ -401,7 +409,7 @@ footer {
     font-size: 70px;
     line-height: 1;
     color: #FFFFFF;
-    padding: 20px 0; }
+    padding: 20px 0 30px 0; }
     footer .contact-head::after, footer .contact-head::before {
       content: '';
       position: absolute;
@@ -416,3 +424,34 @@ footer {
       right: 100%;
       left: auto;
       margin: 0 30px 0 0; }
+  footer .contact-info a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    padding: 3px 6px;
+    font-family: "Mosk Regular", sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    transition: color 0.3s ease;
+    font-size: 20px;
+    margin: 0 10px; }
+    footer .contact-info a:hover {
+      color: #000000; }
+    footer .contact-info a::after {
+      content: '';
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      transition: height 0.3s ease;
+      z-index: -1;
+      background: #fff; }
+    footer .contact-info a:hover::after {
+      height: 100%; }
+  footer .footer-social {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px; }
+    footer .footer-social li {
+      padding: 0 10px; }
