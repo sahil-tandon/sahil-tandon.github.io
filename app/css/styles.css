@@ -353,3 +353,43 @@ header {
       #experience .experience-content .experience-item ul {
         list-style-type: disc;
         list-style-position: inside; }
+
+footer {
+  background: linear-gradient(90deg, #262626 21px, transparent 1%) center, linear-gradient(#262626 21px, transparent 1%) center, #F2BB05;
+  background-size: 22px 22px;
+  background-position-x: -11px;
+  background-position-y: -11px;
+  background-attachment: fixed;
+  text-align: center;
+  margin-top: 50px;
+  padding: 50px; }
+  footer .contact-pre-text {
+    font-family: "Mosk Thin", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    word-spacing: 0.1em;
+    letter-spacing: 0.05em; }
+  footer .contact-head {
+    display: inline-block;
+    position: relative;
+    font-family: "Mosk Extra Bold", sans-serif;
+    font-size: 70px;
+    line-height: 1;
+    color: #FFFFFF;
+    padding: 20px 0; }
+    footer .contact-head::after, footer .contact-head::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      width: calc(30vw - 50%);
+      height: 4px;
+      transform: translateY(-50%);
+      margin: 0 0 0 30px;
+      background: white; }
+    footer .contact-head::before {
+      right: 100%;
+      left: auto;
+      margin: 0 30px 0 0; }

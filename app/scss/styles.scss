@@ -443,3 +443,49 @@ header {
 		}
 	}	
 }
+
+footer {
+	background: linear-gradient(90deg, #262626 21px, transparent 1%) center, linear-gradient(#262626 21px, transparent 1%) center, #F2BB05;
+	background-size: 22px 22px;
+	background-position-x: -11px;
+    background-position-y: -11px;
+    background-attachment: fixed;
+    text-align: center;
+    margin-top: 50px;
+    padding: 50px;    
+    .contact-pre-text {
+    	font-family: $fontThin;
+		font-weight: bold;
+	    font-size: 18px;
+	    line-height: 1.5;
+	    color: #fff;
+	    word-spacing: 0.1em;
+	    letter-spacing: 0.05em;
+    }
+    .contact-head {
+    	display: inline-block;
+    	position: relative;
+    	font-family: $fontExtraBold;
+	    font-size: 70px;
+	    line-height: 1;
+	    color: $colorFontSecondary;
+	    padding: 20px 0;
+	    &::after,
+	    &::before {
+	    	content: '';
+		    position: absolute;
+		    top: 50%;
+		    left: 100%;
+		    width: calc(30vw - 50%);
+		    height: 4px;
+		    transform: translateY(-50%);
+		    margin: 0 0 0 30px;
+		    background: white;   		    		   
+	    }
+	    &::before {
+	    	right: 100%;
+	    	left: auto;
+	    	margin: 0 30px 0 0;
+    	}
+    }
+}
