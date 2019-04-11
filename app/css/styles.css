@@ -39,7 +39,8 @@ body {
   color: #000000; }
 
 .hidden {
-  display: none; }
+  display: none !important;
+  visibility: hidden !important; }
 
 .container {
   padding: 0 50px; }
