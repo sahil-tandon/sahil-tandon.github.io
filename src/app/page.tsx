@@ -1,5 +1,6 @@
-import { SpotlightBackground } from '@/components/SpotlightBackground';
+import { ContactForm } from '@/components/ContactForm';
 import { SocialLinks } from '@/components/SocialLinks';
+import { SpotlightBackground } from '@/components/SpotlightBackground';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
         </section>
 
         <SocialLinks />
+        <ContactForm />
       </div>
     </main>
   );
