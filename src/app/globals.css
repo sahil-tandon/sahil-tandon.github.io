@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Scrollbar Styling - Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #18181b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(167, 139, 250);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(196, 181, 253);
+}
+
+/* Scrollbar Styling - Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(167, 139, 250) #18181b;
+}
