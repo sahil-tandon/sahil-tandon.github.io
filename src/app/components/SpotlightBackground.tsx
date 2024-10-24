@@ -13,7 +13,10 @@ export function SpotlightBackground() {
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       requestAnimationFrame(() => {
-        setMousePosition({ x: e.clientX, y: e.clientY });
+        setMousePosition({ 
+          x: e.pageX - window.scrollX, 
+          y: e.pageY - window.scrollY 
+        });
       });
     };
 
@@ -24,7 +27,7 @@ export function SpotlightBackground() {
   return (
     <div 
       aria-hidden="true"
-      className="absolute inset-0 opacity-40 pointer-events-none transition-opacity duration-300"
+      className="fixed inset-0 opacity-40 pointer-events-none transition-opacity duration-300"
       style={{
         background: `
           radial-gradient(
