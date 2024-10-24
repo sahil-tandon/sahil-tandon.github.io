@@ -1,11 +1,12 @@
 import { SpotlightBackground } from '@/components/SpotlightBackground';
+import { SocialLinks } from '@/components/SocialLinks';
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden relative">
       <SpotlightBackground />
       
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-24 space-y-16">
         <section className="space-y-8">
           <h2 className="text-2xl tracking-[0.2em] font-light hover:text-violet-400 transition-colors">
             SAHIL TANDON
@@ -19,6 +20,8 @@ export default function Home() {
             </p>
           </div>
         </section>
+
+        <SocialLinks />
       </div>
     </main>
   );
