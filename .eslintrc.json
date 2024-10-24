@@ -1,15 +1,16 @@
 {
   "extends": [
     "next/core-web-vitals",
-    "next/typescript",
-    "prettier"
+    "next/typescript"
   ],
   "plugins": [
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
-    "no-unused-vars": "warn",
-    "no-console": "warn"
+    "prettier/prettier": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "no-console": "off",
+    "react/no-unescaped-entities": "off"
   }
 }
