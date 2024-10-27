@@ -9,25 +9,25 @@ interface SocialLink {
 
 const socialLinks: SocialLink[] = [
   {
-    icon: <FileText className="w-6 h-6" />,
+    icon: <FileText className="w-5 h-5" />,
     label: "Resume",
     href: "/sahil-tandon-resume.pdf",
     isExternal: true,
   },
   {
-    icon: <Linkedin className="w-6 h-6" />,
+    icon: <Linkedin className="w-5 h-5" />,
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/tandonsahil/",
     isExternal: true,
   },
   {
-    icon: <Github className="w-6 h-6" />,
+    icon: <Github className="w-5 h-5" />,
     label: "GitHub",
     href: "https://github.com/sahil-tandon",
     isExternal: true,
   },
   {
-    icon: <Mail className="w-6 h-6" />,
+    icon: <Mail className="w-5 h-5" />,
     label: "Email",
     href: "mailto:sahil.tandon@live.com",
     isExternal: false,
@@ -43,12 +43,12 @@ export function SocialLinks() {
           href={link.href}
           target={link.isExternal ? "_blank" : undefined}
           rel={link.isExternal ? "noopener noreferrer" : undefined}
-          className="group flex items-center space-x-2 py-2 border-b border-transparent hover:border-violet-400 transition-all duration-300"
+          className="group flex items-center space-x-3 py-2 border-b border-transparent hover:border-violet-400 transition-all duration-300"
         >
           <span className="text-violet-200 group-hover:text-violet-400 transition-colors">
             {link.icon}
           </span>
-          <span className="text-zinc-400 group-hover:text-zinc-100 transition-colors">
+          <span className="text-sm text-zinc-400 group-hover:text-zinc-100 transition-colors">
             {link.label}
           </span>
         </a>
