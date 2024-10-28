@@ -12,7 +12,7 @@ export default function Home() {
         <div className="min-h-screen flex flex-col justify-center">
           <section className="space-y-20">
             <div className="space-y-2">
-              <h2 className="text-lg tracking-[0.2em] font-light text-zinc-400">
+              <h2 className="text-lg tracking-[0.2em] font-light text-violet-400">
                 SAHIL TANDON
               </h2>
               <div className="space-y-16">
