@@ -6,13 +6,8 @@ const titles = [
   'Frontend Developer',
   'Product Enthusiast',
   'Agile Practitioner',
-  'Design-Conscious',
-  'Data-Driven',
-  'Team Player',
-  'Effective Communicator',
-  'Skilled Collaborator',
-  'A11y Aware',
-  'Quick Learner'
+  'Design Conscious',
+  'Data Driven',
 ];
 
 export function TypewriterEffect() {
