@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-10-29
+
+### Added
+
+- Google Analytics 4 integration for user engagement tracking.
+- Standalone FormField component for form input styling.
+- Analytics event tracking for user interactions.
+
+### Changed
+
+- Enhanced form field hover states with a gradient glow effect.
+- Updated name heading color to violet-400.
+- Fixed textarea spacing in form fields.
+- Corrected title text alignment with -4px margin.
+- Refined spacing between sections and typography.
+- Improved form styling and button interactions.
+- Enhanced contact form styling and copy.
+- Improved typewriter cursor behavior and mobile text wrapping.
+
 ## [0.2.0] - 2024-10-28
 
 ### Added
