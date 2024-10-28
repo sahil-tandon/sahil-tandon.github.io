@@ -45,10 +45,10 @@ export function SocialLinks() {
           rel={link.isExternal ? "noopener noreferrer" : undefined}
           className="group flex items-center space-x-3 py-2 border-b border-transparent hover:border-violet-400 transition-all duration-300"
         >
-          <span className="text-violet-200 group-hover:text-violet-400 transition-colors">
-            {link.icon}
+          <span className="text-zinc-300 group-hover:text-violet-400 transition-colors">            
+            <span className="block w-6 h-6">{link.icon}</span>
           </span>
-          <span className="text-sm text-zinc-400 group-hover:text-zinc-100 transition-colors">
+          <span className="text-sm text-zinc-500 group-hover:text-zinc-100 transition-colors">
             {link.label}
           </span>
         </a>

@@ -9,26 +9,30 @@ export default function Home() {
       <SpotlightBackground />
       
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="h-screen flex flex-col justify-center">
-          <section className="space-y-16">
-            <h2 className="text-lg tracking-[0.2em] font-light text-zinc-400">
-              SAHIL TANDON
-            </h2>
-            <div className="space-y-12">
-              <TypewriterEffect />
-              
-              <p className="text-xl text-zinc-400 max-w-xl leading-relaxed font-light">
-                I'm a frontend engineer with a passion for crafting exceptional digital experiences. 
-                I transform user interfaces into strategic business assets, combining technical 
-                excellence with product vision.
-              </p>
+        <div className="min-h-screen flex flex-col justify-center">
+          <section className="space-y-20">
+            <div className="space-y-2">
+              <h2 className="text-lg tracking-[0.2em] font-light text-zinc-400">
+                SAHIL TANDON
+              </h2>
+              <div className="space-y-16">
+                <TypewriterEffect />
+                
+                <p className="text-xl text-zinc-400 max-w-xl leading-relaxed font-light">
+                  I'm a frontend engineer with a passion for crafting exceptional digital experiences. 
+                  I transform user interfaces into strategic business assets, combining technical 
+                  excellence with product vision.
+                </p>
+              </div>
             </div>
-            <div className="pt-8">
+            
+            <div className="pt-4">
               <SocialLinks />
             </div>
           </section>
         </div>
-        <div className="py-24">
+        
+        <div className="py-32">
           <ContactForm />
         </div>
       </div>

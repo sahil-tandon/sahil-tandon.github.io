@@ -51,7 +51,7 @@ export function ContactForm() {
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="space-y-4">
           <div className="space-y-2">
-            <label htmlFor="name" className="text-sm text-zinc-400 font-light">Name</label>
+            <label htmlFor="name" className="text-base text-zinc-500 font-light">Name</label>
             <input
               id="name"
               type="text"
@@ -59,7 +59,7 @@ export function ContactForm() {
               placeholder="How should I address you?"
               required
               disabled={status.state === 'submitting'}
-              className="w-full p-4 bg-zinc-900/50 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg"
+              className="w-full p-4 bg-zinc-900/60 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg"
             />
           </div>
           
@@ -111,7 +111,7 @@ export function ContactForm() {
           <span className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></span>
           <span className="absolute bottom-0 left-0 w-4 h-full bg-gradient-to-r from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></span>
           <span className="absolute bottom-0 right-0 w-4 h-full bg-gradient-to-l from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></span>
-          
+                    
           <span className="absolute inset-0 w-full h-full border border-zinc-700 group-hover:border-violet-400 transition-colors duration-300"></span>
                     
           <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-violet-400 rounded-full group-hover:w-56 group-hover:h-56 opacity-[0.02]"></span>
