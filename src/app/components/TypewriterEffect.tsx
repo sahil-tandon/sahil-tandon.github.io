@@ -56,13 +56,11 @@ export function TypewriterEffect() {
     return () => clearTimeout(timeout);
   }, [text, isDeleting, titleIndex, delta, isPaused]);
 
-  // Get the current line's height for the cursor
   useEffect(() => {
     if (textRef.current && containerRef.current) {
       const textMetrics = textRef.current.getBoundingClientRect();
       const containerMetrics = containerRef.current.getBoundingClientRect();
       
-      // If text is wrapping (height > single line height), adjust container padding
       if (textMetrics.height > containerMetrics.height / 2) {
         containerRef.current.classList.add('pb-16', 'sm:pb-20');
       } else {
