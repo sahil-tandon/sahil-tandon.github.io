@@ -1,14 +1,10 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { initGA, trackPageView } from '@/lib/analytics';
 
-export function AnalyticsProvider({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+function AnalyticsProviderInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -26,5 +22,20 @@ export function AnalyticsProvider({
     }
   }, [pathname, searchParams]);
 
-  return <>{children}</>;
+  return null;
+}
+
+export function AnalyticsProvider({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <>
+      <Suspense fallback={null}>
+        <AnalyticsProviderInner />
+      </Suspense>
+      {children}
+    </>
+  );
 }
