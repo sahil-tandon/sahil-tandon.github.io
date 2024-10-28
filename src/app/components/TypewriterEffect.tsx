@@ -76,7 +76,7 @@ export function TypewriterEffect() {
       ref={containerRef}
       className="relative min-h-[5rem] sm:min-h-[6rem] pb-8 sm:pb-12 transition-all duration-300"
     >
-      <h1 className="text-4xl sm:text-6xl md:text-7xl font-normal leading-tight text-zinc-100 absolute">
+      <h1 className="-ml-[4px] text-4xl sm:text-6xl md:text-7xl font-normal leading-tight text-zinc-100 absolute">
         <span 
           ref={textRef} 
           className="relative inline"
