@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-10-28
+
+### Added
+
+- Animated typewriter effect with blinking cursor in hero section.
+- Custom animation keyframes in Tailwind configuration.
+- Tailwind configuration for Oxanium font family.
+
+### Changed
+
+- Replaced local Geist font with Oxanium from Google Fonts for design refresh.
+- Refined typography scales and font weights.
+- Improved responsive layout spacing.
+- Updated page metadata with proper title and description.
+
+### Removed
+
+- Local Geist font files from /fonts directory.
+
 ## [0.1.0] - 2024-10-24
 
 ### Added
@@ -19,13 +38,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Contact form integration with Formspree.
 - Custom themed scrollbar.
 - Static export configuration.
-
-### Pending
-
-- Content refinement.
-- Cross-browser testing.
-- Responsive testing across devices.
-- Unit and integration tests.
-- Documentation.
-- Performance optimization.
-- Accessibility improvements.
