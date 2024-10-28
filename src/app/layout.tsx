@@ -10,8 +10,8 @@ const oxanium = Oxanium({
 });
 
 export const metadata: Metadata = {
-  title: "Sahil Tandon - Frontend Developer",
-  description: "Frontend engineer with a passion for crafting exceptional digital experiences",
+  title: "Sahil Tandon - Frontend Engineer & Product Enthusiast",
+  description: "Frontend Engineer with a passion for crafting delightful digital experiences that solve business problems.",
 };
 
 export default function RootLayout({
