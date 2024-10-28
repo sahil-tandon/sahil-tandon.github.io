@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Oxanium } from 'next/font/google';
 import localFont from "next/font/local";
 import { AnalyticsProvider } from '@/components/AnalyticsProvider';
