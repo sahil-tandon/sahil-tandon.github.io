@@ -1,4 +1,7 @@
+'use client';
+
 import { FileText, Github, Linkedin, Mail } from 'lucide-react';
+import { trackLinkClick } from '@/lib/analytics';
 
 interface SocialLink {
   icon: JSX.Element;
@@ -35,6 +38,10 @@ const socialLinks: SocialLink[] = [
 ];
 
 export function SocialLinks() {
+  const handleClick = (link: SocialLink) => {
+    trackLinkClick(link.label, link.href);
+  };
+
   return (
     <div className="flex flex-wrap gap-8">
       {socialLinks.map((link) => (
@@ -43,6 +50,7 @@ export function SocialLinks() {
           href={link.href}
           target={link.isExternal ? "_blank" : undefined}
           rel={link.isExternal ? "noopener noreferrer" : undefined}
+          onClick={() => handleClick(link)}
           className="group flex items-center space-x-3 py-2 border-b border-transparent hover:border-violet-400 transition-all duration-300"
         >
           <span className="text-zinc-300 group-hover:text-violet-400 transition-colors">            

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { trackFormSubmission } from '@/lib/analytics';
 import { Send, MessageSquareMore } from 'lucide-react';
 import { FormField } from '@/components/FormField';
 
@@ -31,6 +32,7 @@ export function ContactForm() {
       if (response.ok) {
         setStatus({ state: 'success', message: "Thanks for reaching out! I'll get back to you within 24 hours." });
         form.reset();
+        trackFormSubmission('Contact Form', true);
       } else {
         throw new Error('Failed to send message');
       }
@@ -39,6 +41,7 @@ export function ContactForm() {
         state: 'error', 
         message: 'Something went wrong. Please try emailing me directly at sahil.tandon@live.com.' 
       });
+      trackFormSubmission('Contact Form', false);
     }
   }
 
