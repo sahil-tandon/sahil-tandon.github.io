@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Send, MessageSquareMore } from 'lucide-react';
 
 interface FormStatus {
   state: 'idle' | 'submitting' | 'success' | 'error';
@@ -58,7 +59,7 @@ export function ContactForm() {
               placeholder="How should I address you?"
               required
               disabled={status.state === 'submitting'}
-              className="w-full p-4 bg-zinc-900/50 rounded-lg ring-offset-zinc-950 ring-offset-2 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg"
+              className="w-full p-4 bg-zinc-900/50 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg"
             />
           </div>
           
@@ -71,7 +72,7 @@ export function ContactForm() {
               placeholder="Where can I reach you?"
               required
               disabled={status.state === 'submitting'}
-              className="w-full p-4 bg-zinc-900/50 rounded-lg ring-offset-zinc-950 ring-offset-2 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg"
+              className="w-full p-4 bg-zinc-900/50 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg"
             />
           </div>
           
@@ -84,7 +85,7 @@ export function ContactForm() {
               rows={4}
               required
               disabled={status.state === 'submitting'}
-              className="w-full p-4 bg-zinc-900/50 rounded-lg ring-offset-zinc-950 ring-offset-2 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg resize-none"
+              className="w-full p-4 bg-zinc-900/50 focus:outline-none focus:ring-2 focus:ring-violet-400/50 transition-all placeholder:text-zinc-600 disabled:opacity-50 text-lg resize-none"
             />
           </div>
         </div>
@@ -102,10 +103,32 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status.state === 'submitting'}
-          className="group relative px-8 py-4 bg-violet-400 text-zinc-900 rounded-lg font-medium text-lg hover:bg-violet-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-400 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 transition-all duration-300 disabled:opacity-50 disabled:hover:bg-violet-400"
-        >
-          {status.state === 'submitting' ? 'Sending...' : "Get in Touch"}
-          <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity" />
+          className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-normal text-zinc-400 hover:text-violet-400 transition-colors duration-300 disabled:opacity-50"
+        >          
+          <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-violet-400/5 group-hover:opacity-100"></span>
+                    
+          <span className="absolute top-0 left-0 w-full bg-gradient-to-b from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300 h-1/3"></span>
+          <span className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></span>
+          <span className="absolute bottom-0 left-0 w-4 h-full bg-gradient-to-r from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></span>
+          <span className="absolute bottom-0 right-0 w-4 h-full bg-gradient-to-l from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300"></span>
+          
+          <span className="absolute inset-0 w-full h-full border border-zinc-700 group-hover:border-violet-400 transition-colors duration-300"></span>
+                    
+          <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-violet-400 rounded-full group-hover:w-56 group-hover:h-56 opacity-[0.02]"></span>
+                    
+          <span className="relative inline-flex items-center gap-2">
+            {status.state === 'submitting' ? (
+              <>
+                <Send className="w-5 h-5 animate-pulse" />
+                <span>Sending...</span>
+              </>
+            ) : (
+              <>
+                <MessageSquareMore className="w-5 h-5" />
+                <span>Get in Touch</span>
+              </>
+            )}
+          </span>
         </button>
       </form>
     </section>
