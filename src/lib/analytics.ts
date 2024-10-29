@@ -6,53 +6,74 @@ export type AnalyticsEvent = {
   nonInteraction?: boolean;
 };
 
+let isInitialized = false;
+
 export const initGA = () => {
-  console.log('🔍 Initializing GA4...');
-  const TRACKING_ID = 'G-EYYW253R71';
-  
-  try {    
-    if (typeof window.gtag !== 'undefined') {
-      console.log('🔍 GA4 already initialized');
-      return;
+  return new Promise((resolve, reject) => {
+    console.log('🔍 Initializing GA4...');
+    const TRACKING_ID = 'G-EYYW253R71';
+    
+    try {      
+      if (typeof window.gtag !== 'undefined') {
+        console.log('🔍 GA4 already initialized');
+        isInitialized = true;
+        resolve(true);
+        return;
+      }
+      
+      window.dataLayer = window.dataLayer || [];
+      function gtag(...args: any[]) {
+        window.dataLayer.push(args);
+      }
+      window.gtag = gtag;
+
+      const script = document.createElement('script');
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`;
+      script.async = true;
+      
+      script.onload = () => {
+        console.log('🔍 GA4 script loaded successfully');
+        gtag('js', new Date());
+        gtag('config', TRACKING_ID, {
+          debug_mode: true,
+          page_path: window.location.pathname,
+          send_page_view: true
+        });
+        console.log(`🔍 GA4 config completed with ID ${TRACKING_ID}`);
+        isInitialized = true;
+        resolve(true);
+      };
+      
+      script.onerror = (error) => {
+        console.error('❌ Error loading GA4 script:', error);
+        reject(error);
+      };
+      
+      document.head.appendChild(script);
+    } catch (error) {
+      console.error('❌ Error during GA4 initialization:', error);
+      reject(error);
     }
-
-    const script = document.createElement('script');
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${TRACKING_ID}`;
-    script.async = true;
-    script.onload = () => {
-      console.log('🔍 GA4 script loaded successfully');
-    };
-    script.onerror = (error) => {
-      console.error('❌ Error loading GA4 script:', error);
-    };
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    function gtag(...args: any[]) {
-      window.dataLayer.push(args);
-    }
-    gtag('js', new Date());
-    gtag('config', TRACKING_ID, {
-      debug_mode: true,
-      page_path: window.location.pathname,
-      send_page_view: true
-    });
-
-    console.log(`🔍 GA4 config completed with ID ${TRACKING_ID}`);
-  } catch (error) {
-    console.error('❌ Error during GA4 initialization:', error);
-  }
+  });
 };
 
-export const trackPageView = (url: string) => {
+const ensureInitialized = async () => {
+  if (!isInitialized) {
+    await initGA();
+  }
+  return isInitialized;
+};
+
+export const trackPageView = async (url: string) => {
   console.log('🔍 Attempting to track page view:', url);
   
-  if (!window.gtag) {
-    console.error('❌ gtag not found when trying to track page view');
-    return;
-  }
-  
   try {
+    await ensureInitialized();
+    
+    if (!window.gtag) {
+      throw new Error('gtag not found after initialization');
+    }
+    
     window.gtag('event', 'page_view', {
       page_path: url,
       page_title: document.title,
@@ -64,15 +85,16 @@ export const trackPageView = (url: string) => {
   }
 };
 
-export const trackEvent = ({ action, category, label, value, nonInteraction = false }: AnalyticsEvent) => {
+export const trackEvent = async ({ action, category, label, value, nonInteraction = false }: AnalyticsEvent) => {
   console.log('🔍 Attempting to track event:', { action, category, label });
   
-  if (!window.gtag) {
-    console.error('❌ gtag not found when trying to track event');
-    return;
-  }
-
   try {
+    await ensureInitialized();
+    
+    if (!window.gtag) {
+      throw new Error('gtag not found after initialization');
+    }
+
     window.gtag('event', action, {
       event_category: category,
       event_label: label,
