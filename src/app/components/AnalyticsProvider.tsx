@@ -1,15 +1,26 @@
 'use client';
 
-import { useEffect, Suspense } from 'react';
+import { useEffect } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { initGA, trackPageView } from '@/lib/analytics';
 
-function AnalyticsProviderInner() {
+export function AnalyticsProvider({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    initGA();
+    const initialize = async () => {
+      try {
+        await initGA();
+      } catch (error) {
+        console.error('Failed to initialize analytics:', error);
+      }
+    };
+    initialize();
   }, []);
 
   useEffect(() => {
@@ -22,20 +33,5 @@ function AnalyticsProviderInner() {
     }
   }, [pathname, searchParams]);
 
-  return null;
-}
-
-export function AnalyticsProvider({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <>
-      <Suspense fallback={null}>
-        <AnalyticsProviderInner />
-      </Suspense>
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
