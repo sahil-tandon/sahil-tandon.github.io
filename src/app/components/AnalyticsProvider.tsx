@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { initGA, trackPageView } from '@/lib/analytics';
 
 export function AnalyticsProvider({
@@ -10,7 +10,6 @@ export function AnalyticsProvider({
   children: React.ReactNode;
 }>) {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     const initialize = async () => {
@@ -25,13 +24,9 @@ export function AnalyticsProvider({
 
   useEffect(() => {
     if (pathname) {
-      const url = searchParams.size > 0 
-        ? `${pathname}?${searchParams.toString()}`
-        : pathname;
-        
-      trackPageView(url);
+      trackPageView(pathname);
     }
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return <>{children}</>;
 }
