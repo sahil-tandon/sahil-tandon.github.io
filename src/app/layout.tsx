@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
-import { Suspense } from "react";
 import { Oxanium } from 'next/font/google';
-import localFont from "next/font/local";
-import { AnalyticsProvider } from '@/components/AnalyticsProvider';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import "./globals.css";
 
 const oxanium = Oxanium({ 
@@ -24,9 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${oxanium.variable} font-oxanium antialiased`}>
-        <AnalyticsProvider>
-          {children}
-        </AnalyticsProvider>
+        {children}
+        <GoogleAnalytics gaId="G-EYYW253R71" />
       </body>
     </html>
   );
