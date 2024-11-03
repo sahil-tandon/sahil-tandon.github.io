@@ -43,7 +43,7 @@ export function SocialLinks() {
   };
 
   return (
-    <div className="flex flex-wrap gap-8">
+    <nav aria-label="Social links" className="flex flex-wrap gap-8">
       {socialLinks.map((link) => (
         <a
           key={link.label}
@@ -51,16 +51,26 @@ export function SocialLinks() {
           target={link.isExternal ? "_blank" : undefined}
           rel={link.isExternal ? "noopener noreferrer" : undefined}
           onClick={() => handleClick(link)}
-          className="group flex items-center space-x-3 py-2 border-b border-transparent hover:border-violet-400 transition-all duration-300"
+          className="group flex items-center space-x-3 py-2 border-b border-transparent 
+            hover:border-violet-400 transition-all duration-300
+            focus:outline-none focus:ring-2 focus:ring-violet-400 
+            focus:ring-offset-2 focus:ring-offset-zinc-950 rounded"
+          aria-label={`${link.label}${link.isExternal ? ' (opens in new tab)' : ''}`}
         >
-          <span className="text-zinc-300 group-hover:text-violet-400 transition-colors">            
+          <span 
+            className="text-zinc-300 group-hover:text-violet-400 transition-colors"
+            aria-hidden="true"
+          >            
             <span className="block w-6 h-6">{link.icon}</span>
           </span>
-          <span className="text-sm text-zinc-500 group-hover:text-zinc-100 transition-colors">
+          <span 
+            className="text-sm text-zinc-400 group-hover:text-zinc-50 
+              transition-colors font-medium"
+          >
             {link.label}
           </span>
         </a>
       ))}
-    </div>
+    </nav>
   );
 }
