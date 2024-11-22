@@ -54,17 +54,17 @@ export function SocialLinks() {
           className="group flex items-center space-x-3 py-2 border-b border-transparent 
             hover:border-violet-400 transition-all duration-300
             focus:outline-none focus:ring-2 focus:ring-violet-400 
-            focus:ring-offset-2 focus:ring-offset-zinc-950 rounded"
+            focus:ring-offset-2 focus:ring-offset-zinc-950"
           aria-label={`${link.label}${link.isExternal ? ' (opens in new tab)' : ''}`}
         >
           <span 
-            className="text-zinc-300 group-hover:text-violet-400 transition-colors"
+            className="text-zinc-500 group-hover:text-violet-400 transition-colors"
             aria-hidden="true"
           >            
             <span className="block w-6 h-6">{link.icon}</span>
           </span>
           <span 
-            className="text-sm text-zinc-400 group-hover:text-zinc-50 
+            className="text-sm text-zinc-300 group-hover:text-zinc-50 
               transition-colors font-medium"
           >
             {link.label}
