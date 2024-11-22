@@ -21,7 +21,7 @@ export function FormField({
   
   return (
     <div className="relative group space-y-2">
-      <label htmlFor={name} className="text-base text-zinc-500 font-light block">
+      <label htmlFor={name} className="text-base text-zinc-300 font-medium block">
         {label}
       </label>
       <div className="relative">        
