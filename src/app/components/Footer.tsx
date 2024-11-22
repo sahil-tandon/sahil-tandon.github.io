@@ -12,21 +12,20 @@ export function Footer() {
     <footer className="w-full pb-4 mt-auto">
       <style jsx global>{`
         @keyframes heartbeat {
-          0%, 30%, 100% { transform: scale(1); }
-          5% { transform: scale(1.25); }
-          7% { transform: scale(1.15); }
+          0%, 25%, 100% { transform: scale(1); }
           10% { transform: scale(1.25); }
-          12% { transform: scale(1); }
+          15% { transform: scale(1.1); }
+          20% { transform: scale(1.25); }
         }
         
         .heart-icon {
-          animation: heartbeat 3.5s ease-in-out infinite;
+          animation: heartbeat 3s ease-in-out infinite;
           transform-origin: center;
           margin-left: 0.1rem;
           margin-right: 0.1rem;
-          width: 15px;
-          height: 15px;
-          color: #993344;
+          width: 14px;
+          height: 14px;
+          color: rgba(167, 139, 250, 0.5);
         }
       `}</style>
 
@@ -38,6 +37,7 @@ export function Footer() {
             <Heart 
               className="inline-block heart-icon"
               fill="currentColor"
+              strokeWidth={0}
               aria-label="love"
             />
             {' '}by{' '}
