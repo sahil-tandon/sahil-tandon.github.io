@@ -50,7 +50,7 @@ export function Footer() {
               &lt;sahil-tandon/&gt;
             </a>
           </p>
-          <p className="text-xs text-zinc-700">© 2024</p>
+          <p className="text-[10px] text-zinc-800">© {new Date().getFullYear()}</p>
         </div>
       </div>
     </footer>
