@@ -94,7 +94,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status.state === 'submitting'}
-          className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-normal text-zinc-400 hover:text-violet-400 transition-colors duration-300 disabled:opacity-50"
+          className="group relative inline-flex items-center justify-center px-6 py-3 overflow-hidden font-normal text-zinc-300 hover:text-violet-400 transition-colors duration-300 disabled:opacity-50"
         >          
           <span className="absolute inset-0 w-full h-full transition duration-300 ease-out opacity-0 bg-violet-400/5 group-hover:opacity-100" />
           <span className="absolute top-0 left-0 w-full bg-gradient-to-b from-violet-400 to-transparent opacity-0 group-hover:opacity-5 transition-opacity duration-300 h-1/3" />
