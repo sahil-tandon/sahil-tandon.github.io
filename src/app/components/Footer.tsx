@@ -9,7 +9,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="w-full py-8 mt-auto">
+    <footer className="w-full pb-4 mt-auto">
       <style jsx global>{`
         @keyframes heartbeat {
           0%, 30%, 100% { transform: scale(1); }
@@ -32,12 +32,13 @@ export function Footer() {
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-right space-y-1">
-          <p className="text-sm text-zinc-500 tracking-wide group font-light">
-            <span className="text-zinc-400">&lt;crafted&gt;</span>{' '}
+          <p className="text-xs text-zinc-600 tracking-wide group">
+            <span className="text-zinc-500">&lt;crafted&gt;</span>{' '}
             with{' '}
             <Heart 
-              className="inline-block heart-icon" 
+              className="inline-block heart-icon"
               fill="currentColor"
+              aria-label="love"
             />
             {' '}by{' '}
             <a 
@@ -45,7 +46,8 @@ export function Footer() {
               target="_blank" 
               rel="noopener noreferrer"
               onClick={handleClick}
-              className="text-zinc-400 hover:text-violet-400 transition-colors duration-300"
+              className="inline-flex items-center text-zinc-500 hover:text-violet-400 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-violet-400/50 focus:ring-offset-1 focus:ring-offset-zinc-950 rounded px-0.5"
+              aria-label="Visit Sahil Tandon's GitHub profile (opens in new tab)"
             >
               &lt;sahil-tandon/&gt;
             </a>
@@ -56,5 +58,3 @@ export function Footer() {
     </footer>
   );
 }
-
-export default Footer;
