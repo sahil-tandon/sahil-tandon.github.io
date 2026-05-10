@@ -3,12 +3,33 @@ import { SocialLinks } from '@/components/SocialLinks';
 import { SpotlightBackground } from '@/components/SpotlightBackground';
 import { TypewriterEffect } from '@/components/TypewriterEffect';
 import { Footer } from '@/components/Footer';
+import { LatestPosts } from '@/components/LatestPosts';
+import { JsonLd } from '@/components/blog/JsonLd';
+import { AUTHOR, SITE_NAME, SITE_TAGLINE, SITE_URL } from '@/lib/site';
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: AUTHOR.name,
+  url: SITE_URL,
+  jobTitle: SITE_TAGLINE,
+  sameAs: [AUTHOR.linkedin, AUTHOR.github].filter(Boolean),
+};
+
+const websiteJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_NAME,
+  url: SITE_URL,
+};
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden relative">
+      <JsonLd data={personJsonLd} />
+      <JsonLd data={websiteJsonLd} />
       <SpotlightBackground />
-      
+
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="min-h-screen flex flex-col justify-center">
           <section className="space-y-20">
@@ -18,21 +39,23 @@ export default function Home() {
               </h2>
               <div className="space-y-16">
                 <TypewriterEffect />
-                
+
                 <p className="text-xl text-zinc-400 max-w-xl leading-relaxed font-light">
-                  I'm a frontend engineer with a passion for crafting exceptional digital experiences. 
-                  I transform user interfaces into strategic business assets, combining technical 
+                  I'm a frontend engineer with a passion for crafting exceptional digital experiences.
+                  I transform user interfaces into strategic business assets, combining technical
                   excellence with product vision.
                 </p>
               </div>
             </div>
-            
+
             <div className="pt-4">
               <SocialLinks />
             </div>
           </section>
         </div>
-        
+
+        <LatestPosts limit={3} />
+
         <div className="py-32">
           <ContactForm />
         </div>
