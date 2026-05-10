@@ -51,6 +51,7 @@ const Figure = ({
   caption?: string;
 }) => (
   <figure className="my-6">
+    {/* eslint-disable-next-line @next/next/no-img-element */}
     <img src={src} alt={alt} loading="lazy" />
     {caption && (
       <figcaption className="mt-2 text-xs text-zinc-500 text-center font-light">
