@@ -1,10 +1,11 @@
 'use client';
 
+import type { ReactElement } from 'react';
 import { FileText, Github, Linkedin, Mail } from 'lucide-react';
 import { trackLinkClick } from '@/lib/analytics';
 
 interface SocialLink {
-  icon: JSX.Element;
+  icon: ReactElement;
   label: string;
   href: string;
   isExternal: boolean;
