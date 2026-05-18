@@ -29,7 +29,7 @@ export default function BlogIndexPage() {
     <main className="min-h-screen bg-zinc-950 text-zinc-100 overflow-hidden relative flex flex-col">
       <SpotlightBackground />
 
-      <div className="flex-1 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-20 w-full">
+      <div className="flex-1 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 pb-20 w-full">
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-xs text-zinc-500 hover:text-violet-400 transition-colors tracking-wider mb-12"
