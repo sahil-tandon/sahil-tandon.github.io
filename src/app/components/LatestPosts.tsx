@@ -21,7 +21,7 @@ export function LatestPosts({ limit = 3 }: LatestPostsProps) {
           id="writing-heading"
           className="text-lg tracking-[0.2em] font-light text-violet-400"
         >
-          WRITING
+          LATEST WRITING
         </h2>
         <Link
           href={BLOG.basePath}
