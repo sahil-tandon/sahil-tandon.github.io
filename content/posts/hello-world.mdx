@@ -1,0 +1,36 @@
+---
+title: "Hello, world"
+description: "A placeholder post — proves the writing pipeline works end to end. Replace or delete me when the first real piece lands."
+date: "2026-05-10"
+tags: ["meta"]
+draft: false
+---
+
+This is a placeholder post that exists so the static export has at least one
+post to render through `generateStaticParams`. Delete this file or replace it
+with a real piece when you publish.
+
+## What works on day one
+
+- MDX with frontmatter validation (`zod`)
+- Code blocks with build-time syntax highlighting via `rehype-pretty-code`
+- A copy button on each `<pre>`
+- Reading time, computed at build
+- Per-post canonical, OG, Twitter card, and `BlogPosting` JSON-LD
+- RSS at `/feed.xml`, sitemap at `/sitemap.xml`, robots at `/robots.txt`
+
+## A code block
+
+```ts
+const greet = (name: string): string => `hi, ${name}`;
+console.log(greet('world'));
+```
+
+## A callout
+
+<Callout>
+  Custom components like this one work because they are passed into MDXRemote
+  via the `components` prop in `src/lib/mdx.ts`.
+</Callout>
+
+That's the whole pipeline. The next post replaces this one.
