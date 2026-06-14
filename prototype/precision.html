@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sahil Tandon — frontend engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:        oklch(0.165 0.012 270);   /* graphite */
+    --bg-2:      oklch(0.205 0.014 270);   /* raised panel */
+    --hair:      oklch(0.97 0.01 270 / 0.085);
+    --hair-2:    oklch(0.97 0.01 270 / 0.16);
+    --ivory:     oklch(0.955 0.008 270);
+    --mid:       oklch(0.70 0.014 270);
+    --faint:     oklch(0.52 0.016 270);
+    --violet:    oklch(0.665 0.17 292);     /* refined, used sparingly */
+    --violet-dim:oklch(0.56 0.14 292);
+    --maxw: 1240px;
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  ::selection { background: var(--violet); color: var(--bg); }
+
+  body {
+    background: var(--bg);
+    color: var(--ivory);
+    font-family: "Oxanium", system-ui, sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.08rem);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* fine blueprint grid + cool vignette + one soft top-light. never flat. */
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image:
+      linear-gradient(var(--hair) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hair) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(110% 80% at 50% 0%, #000 35%, transparent 78%);
+            mask-image: radial-gradient(110% 80% at 50% 0%, #000 35%, transparent 78%);
+    opacity: 0.6;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(70% 50% at 50% -8%, oklch(0.42 0.06 292 / 0.18), transparent 60%),
+      radial-gradient(120% 100% at 50% 120%, oklch(0.10 0.01 270), transparent 55%);
+  }
+
+  a { color: inherit; }
+  :focus-visible { outline: 1.5px solid var(--violet); outline-offset: 4px; }
+
+  .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
+
+  .label {
+    font-weight: 600; font-size: 0.68rem;
+    letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint);
+  }
+
+  /* ---------------- STATUS BAR ---------------- */
+  .statusbar {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--hair);
+  }
+  .mark { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; letter-spacing: 0.22em; font-size: 0.82rem; text-transform: uppercase; }
+  .mark .reg { width: 16px; height: 16px; position: relative; }
+  .mark .reg::before, .mark .reg::after { content: ""; position: absolute; background: var(--violet); }
+  .mark .reg::before { left: 50%; top: 0; width: 1.5px; height: 100%; transform: translateX(-50%); }
+  .mark .reg::after { top: 50%; left: 0; height: 1.5px; width: 100%; transform: translateY(-50%); }
+  .readouts { display: flex; gap: clamp(1rem, 3vw, 2.4rem); }
+  .readouts .ro { display: flex; flex-direction: column; gap: 0.15rem; }
+  .readouts .ro .k { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); }
+  .readouts .ro .v { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--mid); font-weight: 500; }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 0 var(--violet); animation: ping 2.6s var(--ease) infinite; display: inline-block; }
+  @keyframes ping { 0% { box-shadow: 0 0 0 0 oklch(0.665 0.17 292 / 0.5); } 70%,100% { box-shadow: 0 0 0 7px oklch(0.665 0.17 292 / 0); } }
+
+  /* ---------------- HERO ---------------- */
+  .hero { position: relative; z-index: 1; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
+  .hero-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: end; }
+
+  .eyebrow { display: flex; align-items: center; gap: 0.8rem; margin-bottom: clamp(1.2rem, 3vw, 1.8rem); }
+  .eyebrow .tick { width: 28px; height: 1.5px; background: var(--violet); transform-origin: left; }
+
+  h1.name {
+    margin: 0;
+    font-weight: 700;
+    font-size: clamp(2.9rem, 9vw, 7.2rem);
+    line-height: 0.96; letter-spacing: -0.01em; text-transform: uppercase;
+    color: var(--ivory);
+  }
+  h1.name .lo { color: var(--mid); font-weight: 300; }   /* tonal split, not a color accent */
+
+  .statement {
+    margin: clamp(1.6rem, 3vw, 2.2rem) 0 0;
+    max-width: 42ch; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
+    font-weight: 300; line-height: 1.45; color: var(--mid);
+  }
+  .statement b { color: var(--ivory); font-weight: 500; }
+
+  .links { display: flex; flex-wrap: wrap; gap: 0 1.6rem; margin-top: clamp(2rem, 4vw, 2.6rem); }
+  .links a {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    text-decoration: none; padding: 0.5rem 0; color: var(--ivory);
+    font-weight: 500; font-size: 0.92rem; letter-spacing: 0.02em;
+    border-bottom: 1.5px solid transparent;
+    transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+  }
+  .links a .d { color: var(--faint); font-size: 0.8rem; transition: color 0.2s var(--ease); }
+  .links a:hover { border-color: var(--violet); }
+  .links a:hover .d { color: var(--violet); }
+
+  /* spec panel: a datasheet, real content carrying the instrument concept */
+  .spec { border: 1px solid var(--hair-2); border-radius: 4px; background: oklch(0.19 0.013 270 / 0.5); overflow: hidden; }
+  .spec .spec-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0.7rem 1rem; border-bottom: 1px solid var(--hair-2);
+    font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--faint);
+  }
+  .spec .spec-head .corner { color: var(--violet); }
+  .spec dl { margin: 0; }
+  .spec .row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1rem; padding: 0.78rem 1rem; border-bottom: 1px solid var(--hair); }
+  .spec .row:last-child { border-bottom: 0; }
+  .spec dt { margin: 0; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); align-self: center; }
+  .spec dd { margin: 0; font-size: 0.86rem; font-weight: 500; color: var(--ivory); letter-spacing: 0.01em; }
+  .spec dd .on { color: var(--violet); }
+
+  /* ---------------- LOG (writing) ---------------- */
+  .log { position: relative; z-index: 1; padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(4rem, 9vw, 7rem); }
+  .log-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--hair-2); }
+  .log-head a { text-decoration: none; color: var(--mid); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s var(--ease); }
+  .log-head a:hover { color: var(--violet); }
+
+  .entry {
+    display: grid; grid-template-columns: 4.5rem 1fr auto; align-items: baseline; gap: clamp(1rem, 2vw, 1.8rem);
+    padding: clamp(1.2rem, 2.6vw, 1.7rem) 0.4rem;
+    border-bottom: 1px solid var(--hair);
+    text-decoration: none; color: inherit;
+    transition: background 0.25s var(--ease), padding-left 0.25s var(--ease);
+  }
+  .entry:hover { background: oklch(0.21 0.014 270 / 0.6); padding-left: 1rem; }
+  .entry .idx { font-size: 0.74rem; letter-spacing: 0.1em; color: var(--faint); font-weight: 600; }
+  .entry:hover .idx { color: var(--violet); }
+  .entry .t { font-size: clamp(1.2rem, 1rem + 0.9vw, 1.7rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.005em; transition: color 0.2s var(--ease); }
+  .entry:hover .t { color: var(--violet); }
+  .entry .b { margin: 0.35rem 0 0; color: var(--mid); font-weight: 300; font-size: 0.96rem; line-height: 1.5; max-width: 58ch; }
+  .entry .date { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--faint); white-space: nowrap; }
+
+  /* ---------------- FOOTER ---------------- */
+  footer.foot { position: relative; z-index: 1; border-top: 1px solid var(--hair-2); }
+  footer.foot .inner { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.8rem; padding: 1.4rem 0 2.4rem; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--faint); }
+  footer.foot a { color: var(--mid); text-decoration: none; }
+  footer.foot a:hover { color: var(--violet); }
+
+  /* ---------------- entry choreography (calibration) ---------------- */
+  .rise { opacity: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .anim .rise { opacity: 0; transform: translateY(0.6em); animation: rise 0.8s var(--ease) forwards; }
+    .anim .draw { transform: scaleX(0); transform-origin: left; animation: draw 0.7s var(--ease) forwards; }
+    .anim .d1 { animation-delay: 0.05s; } .anim .d2 { animation-delay: 0.14s; }
+    .anim .d3 { animation-delay: 0.24s; } .anim .d4 { animation-delay: 0.34s; }
+    .anim .d5 { animation-delay: 0.46s; } .anim .d6 { animation-delay: 0.58s; }
+    .anim .spec .row { opacity: 0; transform: translateY(0.5em); animation: rise 0.6s var(--ease) forwards; }
+    .anim .spec .row:nth-child(1){animation-delay:.42s}.anim .spec .row:nth-child(2){animation-delay:.5s}
+    .anim .spec .row:nth-child(3){animation-delay:.58s}.anim .spec .row:nth-child(4){animation-delay:.66s}
+    @keyframes rise { to { opacity: 1; transform: none; } }
+    @keyframes draw { to { transform: scaleX(1); } }
+  }
+
+  @media (max-width: 860px) {
+    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
+  }
+  @media (max-width: 560px) {
+    .readouts .ro:first-child { display: none; }
+    .entry { grid-template-columns: 1fr; gap: 0.5rem; }
+    .entry .date { order: -1; }
+  }
+</style>
+</head>
+<body>
+  <header class="statusbar">
+    <span class="mark"><span class="reg" aria-hidden="true"></span> Sahil&nbsp;Tandon</span>
+    <div class="readouts">
+      <div class="ro"><span class="k">Discipline</span><span class="v">Frontend / Product</span></div>
+      <div class="ro"><span class="k">Status</span><span class="v"><span class="status-dot" aria-hidden="true"></span>&nbsp; Open to work</span></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow"><span class="tick draw d1" aria-hidden="true"></span><span class="label rise d1">Frontend Engineer · Specification</span></div>
+          <h1 class="name rise d2">Sahil <span class="lo">Tandon</span></h1>
+          <p class="statement rise d3">
+            I build interfaces that <b>earn their place</b>: engineered for performance,
+            shaped by product judgment, finished in the details most people skip.
+          </p>
+          <nav class="links rise d4" aria-label="Links">
+            <a href="#">Resume <span class="d">↗</span></a>
+            <a href="#">LinkedIn <span class="d">↗</span></a>
+            <a href="#">GitHub <span class="d">↗</span></a>
+            <a href="#">Email <span class="d">→</span></a>
+          </nav>
+        </div>
+
+        <aside class="spec" aria-label="Profile specification">
+          <div class="spec-head"><span>Profile</span><span class="corner">+</span></div>
+          <dl>
+            <div class="row"><dt>Role</dt><dd>Frontend Engineer</dd></div>
+            <div class="row"><dt>Focus</dt><dd>Interfaces, performance, product</dd></div>
+            <div class="row"><dt>Stack</dt><dd>TypeScript · React · Next.js</dd></div>
+            <div class="row"><dt>Status</dt><dd><span class="on">●</span> Available for new work</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+
+    <section class="log" aria-labelledby="log-head">
+      <div class="log-head"><span class="label" id="log-head">Writing — Log</span> <a href="#">All entries →</a></div>
+
+      <a class="entry" href="#">
+        <span class="idx">001</span>
+        <span>
+          <span class="t">Building a blog that loads before you blink</span>
+          <p class="b">Static MDX, zero client JS on the critical path, and the small architectural choices that keep it that way.</p>
+        </span>
+        <span class="date">2026.06</span>
+      </a>
+      <a class="entry" href="#">
+        <span class="idx">002</span>
+        <span>
+          <span class="t">The interface is the argument</span>
+          <p class="b">Why I stopped treating UI as decoration and started treating every screen as a claim the product makes.</p>
+        </span>
+        <span class="date">2026.05</span>
+      </a>
+      <a class="entry" href="#">
+        <span class="idx">003</span>
+        <span>
+          <span class="t">The details that compound</span>
+          <p class="b">Focus rings, empty states, optimistic updates: the unglamorous work that decides whether software feels good.</p>
+        </span>
+        <span class="date">2026.04</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap inner">
+      <span>Set in Oxanium · built with intent — <a href="#">RSS</a></span>
+      <span>© 2026 Sahil Tandon</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (rm && rm.matches) return;
+      document.body.classList.add('anim');
+    })();
+  </script>
+</body>
+</html>
