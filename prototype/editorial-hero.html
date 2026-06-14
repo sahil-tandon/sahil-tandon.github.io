@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sahil Tandon — editorial prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,900&family=Space+Grotesk:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Paper + ink, built in OKLCH */
+    --paper:      oklch(0.957 0.012 92);   /* warm newsprint */
+    --paper-2:    oklch(0.929 0.015 90);   /* slightly deeper panel */
+    --ink:        oklch(0.205 0.018 70);   /* near-black warm ink */
+    --ink-soft:   oklch(0.422 0.020 70);   /* secondary text */
+    --ink-faint:  oklch(0.560 0.018 70);   /* meta / captions */
+    --rule:       oklch(0.205 0.018 70 / 0.18);
+    --accent:     oklch(0.482 0.165 27);   /* oxblood */
+    --accent-ink: oklch(0.420 0.170 27);
+
+    --maxw: 1180px;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Space Grotesk", system-ui, sans-serif;
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.0625rem);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Paper grain + a directional warm light from top-left */
+  body::before {
+    content: "";
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(120% 90% at 8% -10%, oklch(0.99 0.02 92 / 0.9), transparent 55%),
+      radial-gradient(90% 80% at 100% 110%, oklch(0.88 0.03 60 / 0.5), transparent 60%);
+    mix-blend-mode: normal;
+  }
+  body::after {
+    content: "";
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+    mix-blend-mode: multiply;
+  }
+
+  .wrap {
+    position: relative; z-index: 1;
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 4vw, 3rem);
+  }
+
+  a { color: inherit; }
+
+  /* ---------- Masthead ---------- */
+  .masthead {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 1rem; flex-wrap: wrap;
+    padding: 1.6rem 0 1rem;
+  }
+  .masthead .name {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    letter-spacing: 0.34em;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+  }
+  .masthead .meta {
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.10em;
+    color: var(--ink-faint);
+    text-transform: uppercase;
+  }
+  .masthead .meta b { color: var(--accent-ink); font-weight: 700; }
+  .rule { height: 1px; background: var(--ink); opacity: 0.85; transform-origin: left center; }
+  .rule.hair { opacity: 0.18; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: clamp(2.5rem, 7vw, 5.5rem) 0 clamp(2rem, 5vw, 4rem); }
+  .kicker {
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--accent-ink);
+    display: flex; align-items: center; gap: 0.8rem;
+    margin-bottom: clamp(1.4rem, 3vw, 2.2rem);
+  }
+  .kicker::after { content: ""; height: 1px; flex: 1; background: var(--rule); }
+
+  h1.statement {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(3rem, 9.5vw, 8.5rem);
+    line-height: 0.94;
+    letter-spacing: -0.025em;
+    margin: 0;
+    max-width: 15ch;
+    text-wrap: balance;
+  }
+  h1.statement em {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  .deck {
+    margin: clamp(1.8rem, 4vw, 2.6rem) 0 0;
+    max-width: 46ch;
+    font-size: clamp(1.05rem, 1rem + 0.4vw, 1.3rem);
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+
+  /* social row */
+  .links {
+    display: flex; flex-wrap: wrap; gap: 0 2.2rem;
+    margin-top: clamp(2rem, 4vw, 2.8rem);
+    font-family: "Space Mono", monospace;
+    font-size: 0.78rem; letter-spacing: 0.06em;
+  }
+  .links a {
+    text-decoration: none;
+    padding: 0.4rem 0;
+    border-bottom: 2px solid transparent;
+    color: var(--ink);
+    transition: border-color 0.25s var(--ease), color 0.25s var(--ease);
+  }
+  .links a .ar { color: var(--ink-faint); transition: color 0.25s var(--ease); }
+  .links a:hover { border-color: var(--accent); }
+  .links a:hover .ar { color: var(--accent); }
+  .links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  /* ---------- Writing index ---------- */
+  .index { padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3.5rem, 8vw, 6rem); }
+  .index h2 {
+    font-family: "Space Mono", monospace;
+    font-weight: 700; font-size: 0.78rem;
+    letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 0 0 1.4rem;
+    display: flex; justify-content: space-between; align-items: baseline;
+  }
+  .index h2 a { color: var(--accent-ink); text-decoration: none; }
+  .index h2 a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 3.4rem 1fr auto;
+    align-items: baseline;
+    gap: 1.4rem;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--rule);
+    text-decoration: none; color: inherit;
+    transition: padding-left 0.3s var(--ease);
+  }
+  .entry:last-child { border-bottom: 1px solid var(--rule); }
+  .entry .no {
+    font-family: "Space Mono", monospace;
+    font-size: 0.85rem; color: var(--accent);
+    padding-top: 0.35rem;
+  }
+  .entry .title {
+    font-family: "Fraunces", Georgia, serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-size: clamp(1.4rem, 1.1rem + 1.2vw, 2.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    transition: color 0.25s var(--ease);
+  }
+  .entry .blurb {
+    margin: 0.5rem 0 0; color: var(--ink-soft);
+    font-size: 0.95rem; max-width: 54ch;
+  }
+  .entry .date {
+    font-family: "Space Mono", monospace;
+    font-size: 0.74rem; color: var(--ink-faint);
+    letter-spacing: 0.06em; white-space: nowrap; padding-top: 0.5rem;
+  }
+  .entry:hover { padding-left: 0.6rem; }
+  .entry:hover .title { color: var(--accent); }
+  .entry:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+  /* ---------- Footer ---------- */
+  footer.foot {
+    border-top: 1px solid var(--ink);
+    padding: 1.4rem 0 2.4rem;
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 0.8rem;
+    font-family: "Space Mono", monospace;
+    font-size: 0.72rem; letter-spacing: 0.08em; color: var(--ink-faint);
+  }
+  footer.foot a { color: var(--accent-ink); text-decoration: none; }
+
+  /* ---------- Entry reveal (gated, content visible by default) ---------- */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal-on .reveal {
+      opacity: 0;
+      transform: translateY(0.6em);
+    }
+    .reveal-on .lift { animation: lift 0.9s var(--ease) forwards; }
+    .reveal-on .lift.d1 { animation-delay: 0.05s; }
+    .reveal-on .lift.d2 { animation-delay: 0.14s; }
+    .reveal-on .lift.d3 { animation-delay: 0.23s; }
+    .reveal-on .lift.d4 { animation-delay: 0.36s; }
+    .reveal-on .lift.d5 { animation-delay: 0.5s; }
+    .reveal-on .grow { transform: scaleX(0); animation: grow 0.8s var(--ease) 0.1s forwards; }
+    @keyframes lift { to { opacity: 1; transform: translateY(0); } }
+    @keyframes grow { to { transform: scaleX(1); } }
+  }
+
+  @media (max-width: 620px) {
+    .entry { grid-template-columns: 2.2rem 1fr; }
+    .entry .date { grid-column: 2; padding-top: 0.6rem; }
+    .masthead { gap: 0.3rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="name reveal lift d1">Sahil Tandon</div>
+      <div class="meta reveal lift d1">Frontend Engineer &nbsp;·&nbsp; Product &amp; Craft &nbsp;·&nbsp; <b>Est. MMXXVI</b></div>
+    </header>
+    <div class="rule grow"></div>
+
+    <section class="hero">
+      <div class="kicker reveal lift d1">Portfolio &amp; Field Notes</div>
+      <h1 class="statement reveal lift d2">Interfaces that <em>earn</em> their place.</h1>
+      <p class="deck reveal lift d3">
+        I'm a frontend engineer who treats the interface as a product decision, not a
+        coat of paint. Technical depth, product judgment, and a stubborn eye for the details
+        that compound.
+      </p>
+      <nav class="links reveal lift d4" aria-label="Social links">
+        <a href="#">Resume <span class="ar">↗</span></a>
+        <a href="#">LinkedIn <span class="ar">↗</span></a>
+        <a href="#">GitHub <span class="ar">↗</span></a>
+        <a href="#">Email <span class="ar">→</span></a>
+      </nav>
+    </section>
+
+    <section class="index reveal lift d5">
+      <h2>Selected Writing <a href="#">Index, all →</a></h2>
+
+      <a class="entry" href="#">
+        <span class="no">01</span>
+        <span>
+          <span class="title">Building a blog that loads before you blink</span>
+          <p class="blurb">Static MDX, zero client JS on the critical path, and the small architectural choices that keep it that way.</p>
+        </span>
+        <span class="date">Jun 2026</span>
+      </a>
+
+      <a class="entry" href="#">
+        <span class="no">02</span>
+        <span>
+          <span class="title">The interface is the argument</span>
+          <p class="blurb">Why I stopped treating UI as decoration and started treating every screen as a claim the product makes.</p>
+        </span>
+        <span class="date">May 2026</span>
+      </a>
+
+      <a class="entry" href="#">
+        <span class="no">03</span>
+        <span>
+          <span class="title">Type, scale, and the gap that does the work</span>
+          <p class="blurb">A practical note on hierarchy: how a single dramatic size jump outperforms a dozen tasteful ones.</p>
+        </span>
+        <span class="date">Apr 2026</span>
+      </a>
+    </section>
+  </div>
+
+  <footer class="foot">
+    <div class="wrap" style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:.8rem;">
+      <span>Crafted in plain HTML &amp; CSS — <a href="#">RSS</a></span>
+      <span>© MMXXVI Sahil Tandon</span>
+    </div>
+  </footer>
+
+  <script>
+    // Gate the hidden start-state behind JS so no-JS / unsupported loads show everything.
+    (function () {
+      var m = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
+      if (!m || !m.matches) {
+        document.body.classList.add('reveal-on');
+      }
+    })();
+  </script>
+</body>
+</html>
