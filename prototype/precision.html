@@ -9,23 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --bg:        oklch(0.165 0.012 270);   /* graphite */
-    --bg-2:      oklch(0.205 0.014 270);   /* raised panel */
-    --hair:      oklch(0.97 0.01 270 / 0.085);
-    --hair-2:    oklch(0.97 0.01 270 / 0.16);
+    --bg:        oklch(0.155 0.012 270);
+    --bg-2:      oklch(0.20 0.014 270);
+    --hair:      oklch(0.97 0.01 270 / 0.08);
+    --hair-2:    oklch(0.97 0.01 270 / 0.15);
     --ivory:     oklch(0.955 0.008 270);
     --mid:       oklch(0.70 0.014 270);
     --faint:     oklch(0.52 0.016 270);
-    --violet:    oklch(0.665 0.17 292);     /* refined, used sparingly */
-    --violet-dim:oklch(0.56 0.14 292);
-    --maxw: 1240px;
+    --violet:    oklch(0.665 0.17 292);
+    --gleam:     50%;
+    --maxw: 1280px;
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   * { box-sizing: border-box; }
   html, body { margin: 0; }
   html { -webkit-text-size-adjust: 100%; }
-
   ::selection { background: var(--violet); color: var(--bg); }
 
   body {
@@ -33,202 +32,190 @@
     color: var(--ivory);
     font-family: "Oxanium", system-ui, sans-serif;
     font-size: clamp(1rem, 0.95rem + 0.3vw, 1.08rem);
-    font-weight: 400;
-    line-height: 1.6;
+    line-height: 1.6; font-weight: 400;
     -webkit-font-smoothing: antialiased;
-    position: relative;
-    overflow-x: hidden;
+    position: relative; overflow-x: hidden;
   }
-  /* fine blueprint grid + cool vignette + one soft top-light. never flat. */
+  /* atmosphere: fine grid up top, a cool violet wash, a deep floor, grain. never flat. */
   body::before {
     content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background-image:
       linear-gradient(var(--hair) 1px, transparent 1px),
       linear-gradient(90deg, var(--hair) 1px, transparent 1px);
-    background-size: 64px 64px;
-    -webkit-mask-image: radial-gradient(110% 80% at 50% 0%, #000 35%, transparent 78%);
-            mask-image: radial-gradient(110% 80% at 50% 0%, #000 35%, transparent 78%);
-    opacity: 0.6;
+    background-size: 72px 72px;
+    -webkit-mask-image: radial-gradient(120% 70% at 50% 0%, #000 30%, transparent 75%);
+            mask-image: radial-gradient(120% 70% at 50% 0%, #000 30%, transparent 75%);
+    opacity: 0.5;
   }
   body::after {
     content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background:
-      radial-gradient(70% 50% at 50% -8%, oklch(0.42 0.06 292 / 0.18), transparent 60%),
-      radial-gradient(120% 100% at 50% 120%, oklch(0.10 0.01 270), transparent 55%);
+      radial-gradient(80% 55% at 50% 30%, oklch(0.40 0.07 292 / 0.16), transparent 62%),
+      radial-gradient(120% 90% at 50% 118%, oklch(0.09 0.01 270), transparent 55%);
   }
 
   a { color: inherit; }
   :focus-visible { outline: 1.5px solid var(--violet); outline-offset: 4px; }
-
   .wrap { position: relative; z-index: 1; max-width: var(--maxw); margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem); }
-
-  .label {
-    font-weight: 600; font-size: 0.68rem;
-    letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint);
-  }
+  .label { font-weight: 600; font-size: 0.66rem; letter-spacing: 0.26em; text-transform: uppercase; color: var(--faint); }
 
   /* ---------------- STATUS BAR ---------------- */
   .statusbar {
-    position: relative; z-index: 2;
+    position: relative; z-index: 3;
     display: flex; align-items: center; justify-content: space-between; gap: 1rem;
     padding: 1.1rem clamp(1.25rem, 4vw, 3rem);
-    border-bottom: 1px solid var(--hair);
   }
-  .mark { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; letter-spacing: 0.22em; font-size: 0.82rem; text-transform: uppercase; }
-  .mark .reg { width: 16px; height: 16px; position: relative; }
+  .mark { display: flex; align-items: center; gap: 0.7rem; font-weight: 700; letter-spacing: 0.22em; font-size: 0.8rem; text-transform: uppercase; }
+  .mark .reg { width: 15px; height: 15px; position: relative; }
   .mark .reg::before, .mark .reg::after { content: ""; position: absolute; background: var(--violet); }
   .mark .reg::before { left: 50%; top: 0; width: 1.5px; height: 100%; transform: translateX(-50%); }
   .mark .reg::after { top: 50%; left: 0; height: 1.5px; width: 100%; transform: translateY(-50%); }
-  .readouts { display: flex; gap: clamp(1rem, 3vw, 2.4rem); }
-  .readouts .ro { display: flex; flex-direction: column; gap: 0.15rem; }
-  .readouts .ro .k { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--faint); }
-  .readouts .ro .v { font-size: 0.78rem; letter-spacing: 0.06em; color: var(--mid); font-weight: 500; }
-  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 0 var(--violet); animation: ping 2.6s var(--ease) infinite; display: inline-block; }
+  .stat { display: flex; align-items: center; gap: 0.55rem; font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid); }
+  .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--violet); animation: ping 2.6s var(--ease) infinite; }
   @keyframes ping { 0% { box-shadow: 0 0 0 0 oklch(0.665 0.17 292 / 0.5); } 70%,100% { box-shadow: 0 0 0 7px oklch(0.665 0.17 292 / 0); } }
 
-  /* ---------------- HERO ---------------- */
-  .hero { position: relative; z-index: 1; padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(2.5rem, 6vw, 4.5rem); }
-  .hero-grid { display: grid; grid-template-columns: 1.55fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: end; }
-
-  .eyebrow { display: flex; align-items: center; gap: 0.8rem; margin-bottom: clamp(1.2rem, 3vw, 1.8rem); }
-  .eyebrow .tick { width: 28px; height: 1.5px; background: var(--violet); transform-origin: left; }
+  /* ---------------- HERO MONUMENT ---------------- */
+  .hero {
+    position: relative; z-index: 1;
+    min-height: calc(100svh - 60px);
+    display: flex; flex-direction: column;
+  }
+  .stage {
+    flex: 1; display: grid; place-items: center;
+    perspective: 1400px; padding: clamp(1rem, 4vw, 3rem) clamp(1.25rem, 4vw, 3rem) 0;
+  }
+  .monument { position: relative; text-align: center; transform-style: preserve-3d; will-change: transform; }
 
   h1.name {
-    margin: 0;
-    font-weight: 700;
-    font-size: clamp(2.9rem, 9vw, 7.2rem);
-    line-height: 0.96; letter-spacing: -0.01em; text-transform: uppercase;
-    color: var(--ivory);
+    margin: 0; font-weight: 800; text-transform: uppercase;
+    font-size: clamp(3.4rem, 16.5vw, 14rem);
+    line-height: 0.82; letter-spacing: -0.015em;
   }
-  h1.name .lo { color: var(--mid); font-weight: 300; }   /* tonal split, not a color accent */
+  .name .mask { display: block; overflow: hidden; padding: 0 0.04em; }
+  .metal {
+    display: inline-block;
+    /* machined steel: a moving specular band over a bright brushed-metal ramp.
+       The vertical ramp is bright-dark-bright so it reads as a polished cylinder
+       catching light; the moving band is the hot specular that rakes across. */
+    background:
+      linear-gradient(102deg,
+        transparent 38%,
+        oklch(1 0.02 285 / 0.0) 43%,
+        oklch(1 0.025 288) 48%,
+        oklch(1 0.04 292) 50.5%,
+        oklch(1 0.025 288) 53%,
+        transparent 60%),
+      linear-gradient(180deg,
+        oklch(1 0.004 280) 0%,
+        oklch(0.95 0.008 282) 14%,
+        oklch(0.78 0.014 278) 40%,
+        oklch(0.52 0.018 272) 55%,
+        oklch(0.70 0.016 276) 64%,
+        oklch(0.93 0.012 283) 82%,
+        oklch(1 0.006 286) 100%);
+    background-size: 240% 100%, 100% 100%;
+    background-position: var(--gleam) 0%, 0 0;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent; color: transparent;
+    /* metal thickness (light bevel steps) + soft grounding shadow, not a black halo */
+    text-shadow:
+      0 1px 0 oklch(0.55 0.01 275),
+      0 2px 0 oklch(0.42 0.01 272),
+      0 3px 1px oklch(0 0 0 / 0.35),
+      0 14px 30px oklch(0 0 0 / 0.5);
+  }
+  /* a single violet machinist's reference line under the monument */
+  .baseline { position: relative; height: 1.5px; width: min(86%, 760px); margin: clamp(1rem,2.5vw,1.8rem) auto 0;
+    background: linear-gradient(90deg, transparent, var(--violet), transparent); opacity: 0.85; transform-origin: center; }
 
-  .statement {
-    margin: clamp(1.6rem, 3vw, 2.2rem) 0 0;
-    max-width: 42ch; font-size: clamp(1.1rem, 1rem + 0.5vw, 1.4rem);
-    font-weight: 300; line-height: 1.45; color: var(--mid);
+  .herofoot {
+    position: relative; z-index: 2;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1.25rem, 4vw, 3rem) clamp(1.75rem, 4vw, 2.5rem);
   }
+  .statement { margin: 0; max-width: 34ch; font-weight: 300; font-size: clamp(1rem, 0.95rem + 0.45vw, 1.25rem); line-height: 1.45; color: var(--mid); }
   .statement b { color: var(--ivory); font-weight: 500; }
-
-  .links { display: flex; flex-wrap: wrap; gap: 0 1.6rem; margin-top: clamp(2rem, 4vw, 2.6rem); }
-  .links a {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    text-decoration: none; padding: 0.5rem 0; color: var(--ivory);
-    font-weight: 500; font-size: 0.92rem; letter-spacing: 0.02em;
-    border-bottom: 1.5px solid transparent;
-    transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
-  }
+  .links { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+  .links a { display: inline-flex; align-items: center; gap: 0.45rem; text-decoration: none; padding: 0.45rem 0; color: var(--ivory); font-weight: 500; font-size: 0.9rem; border-bottom: 1.5px solid transparent; transition: border-color 0.2s var(--ease), color 0.2s var(--ease); }
   .links a .d { color: var(--faint); font-size: 0.8rem; transition: color 0.2s var(--ease); }
   .links a:hover { border-color: var(--violet); }
   .links a:hover .d { color: var(--violet); }
 
-  /* spec panel: a datasheet, real content carrying the instrument concept */
-  .spec { border: 1px solid var(--hair-2); border-radius: 4px; background: oklch(0.19 0.013 270 / 0.5); overflow: hidden; }
-  .spec .spec-head {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0.7rem 1rem; border-bottom: 1px solid var(--hair-2);
-    font-size: 0.62rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--faint);
-  }
-  .spec .spec-head .corner { color: var(--violet); }
-  .spec dl { margin: 0; }
-  .spec .row { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1rem; padding: 0.78rem 1rem; border-bottom: 1px solid var(--hair); }
-  .spec .row:last-child { border-bottom: 0; }
-  .spec dt { margin: 0; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--faint); align-self: center; }
-  .spec dd { margin: 0; font-size: 0.86rem; font-weight: 500; color: var(--ivory); letter-spacing: 0.01em; }
-  .spec dd .on { color: var(--violet); }
-
-  /* ---------------- LOG (writing) ---------------- */
-  .log { position: relative; z-index: 1; padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(4rem, 9vw, 7rem); }
+  /* ---------------- LOG ---------------- */
+  .log { position: relative; z-index: 1; padding: clamp(2.5rem, 6vw, 5rem) 0 clamp(4rem, 9vw, 7rem); }
   .log-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--hair-2); }
   .log-head a { text-decoration: none; color: var(--mid); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; transition: color 0.2s var(--ease); }
   .log-head a:hover { color: var(--violet); }
-
-  .entry {
-    display: grid; grid-template-columns: 4.5rem 1fr auto; align-items: baseline; gap: clamp(1rem, 2vw, 1.8rem);
-    padding: clamp(1.2rem, 2.6vw, 1.7rem) 0.4rem;
-    border-bottom: 1px solid var(--hair);
-    text-decoration: none; color: inherit;
-    transition: background 0.25s var(--ease), padding-left 0.25s var(--ease);
-  }
+  .entry { display: grid; grid-template-columns: 4.5rem 1fr auto; align-items: baseline; gap: clamp(1rem, 2vw, 1.8rem); padding: clamp(1.2rem, 2.6vw, 1.7rem) 0.4rem; border-bottom: 1px solid var(--hair); text-decoration: none; color: inherit; transition: background 0.25s var(--ease), padding-left 0.25s var(--ease); }
   .entry:hover { background: oklch(0.21 0.014 270 / 0.6); padding-left: 1rem; }
   .entry .idx { font-size: 0.74rem; letter-spacing: 0.1em; color: var(--faint); font-weight: 600; }
   .entry:hover .idx { color: var(--violet); }
-  .entry .t { font-size: clamp(1.2rem, 1rem + 0.9vw, 1.7rem); font-weight: 600; line-height: 1.14; letter-spacing: -0.005em; transition: color 0.2s var(--ease); }
+  .entry .t { font-size: clamp(1.2rem, 1rem + 0.9vw, 1.7rem); font-weight: 600; line-height: 1.14; transition: color 0.2s var(--ease); }
   .entry:hover .t { color: var(--violet); }
   .entry .b { margin: 0.35rem 0 0; color: var(--mid); font-weight: 300; font-size: 0.96rem; line-height: 1.5; max-width: 58ch; }
   .entry .date { font-size: 0.72rem; letter-spacing: 0.08em; color: var(--faint); white-space: nowrap; }
 
-  /* ---------------- FOOTER ---------------- */
   footer.foot { position: relative; z-index: 1; border-top: 1px solid var(--hair-2); }
   footer.foot .inner { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.8rem; padding: 1.4rem 0 2.4rem; font-size: 0.72rem; letter-spacing: 0.08em; color: var(--faint); }
   footer.foot a { color: var(--mid); text-decoration: none; }
   footer.foot a:hover { color: var(--violet); }
 
-  /* ---------------- entry choreography (calibration) ---------------- */
+  /* ---------------- entry choreography ---------------- */
   .rise { opacity: 1; }
   @media (prefers-reduced-motion: no-preference) {
-    .anim .rise { opacity: 0; transform: translateY(0.6em); animation: rise 0.8s var(--ease) forwards; }
-    .anim .draw { transform: scaleX(0); transform-origin: left; animation: draw 0.7s var(--ease) forwards; }
-    .anim .d1 { animation-delay: 0.05s; } .anim .d2 { animation-delay: 0.14s; }
-    .anim .d3 { animation-delay: 0.24s; } .anim .d4 { animation-delay: 0.34s; }
-    .anim .d5 { animation-delay: 0.46s; } .anim .d6 { animation-delay: 0.58s; }
-    .anim .spec .row { opacity: 0; transform: translateY(0.5em); animation: rise 0.6s var(--ease) forwards; }
-    .anim .spec .row:nth-child(1){animation-delay:.42s}.anim .spec .row:nth-child(2){animation-delay:.5s}
-    .anim .spec .row:nth-child(3){animation-delay:.58s}.anim .spec .row:nth-child(4){animation-delay:.66s}
-    @keyframes rise { to { opacity: 1; transform: none; } }
-    @keyframes draw { to { transform: scaleX(1); } }
+    .anim .mask > * { transform: translateY(106%); animation: rise 1.05s var(--ease) both; }
+    .anim .mask:nth-child(2) > * { animation-delay: 0.12s; }
+    .anim .rise { opacity: 0; transform: translateY(0.6em); animation: liftIn 0.8s var(--ease) both; }
+    .anim .baseline { transform: scaleX(0); animation: grow 0.9s var(--ease) 0.5s both; }
+    .anim .d3 { animation-delay: 0.42s; } .anim .d4 { animation-delay: 0.54s; }
+    .anim .d5 { animation-delay: 0.66s; }
+    @keyframes rise { to { transform: translateY(0); } }
+    @keyframes liftIn { to { opacity: 1; transform: none; } }
+    @keyframes grow { to { transform: scaleX(1); } }
   }
 
-  @media (max-width: 860px) {
-    .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; align-items: start; }
-  }
   @media (max-width: 560px) {
-    .readouts .ro:first-child { display: none; }
     .entry { grid-template-columns: 1fr; gap: 0.5rem; }
     .entry .date { order: -1; }
+    .herofoot { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
   }
 </style>
 </head>
 <body>
   <header class="statusbar">
     <span class="mark"><span class="reg" aria-hidden="true"></span> Sahil&nbsp;Tandon</span>
-    <div class="readouts">
-      <div class="ro"><span class="k">Discipline</span><span class="v">Frontend / Product</span></div>
-      <div class="ro"><span class="k">Status</span><span class="v"><span class="status-dot" aria-hidden="true"></span>&nbsp; Open to work</span></div>
-    </div>
+    <span class="stat"><span class="status-dot" aria-hidden="true"></span> Open to work</span>
   </header>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow"><span class="tick draw d1" aria-hidden="true"></span><span class="label rise d1">Frontend Engineer · Specification</span></div>
-          <h1 class="name rise d2">Sahil <span class="lo">Tandon</span></h1>
-          <p class="statement rise d3">
-            I build interfaces that <b>earn their place</b>: engineered for performance,
-            shaped by product judgment, finished in the details most people skip.
-          </p>
-          <nav class="links rise d4" aria-label="Links">
-            <a href="#">Resume <span class="d">↗</span></a>
-            <a href="#">LinkedIn <span class="d">↗</span></a>
-            <a href="#">GitHub <span class="d">↗</span></a>
-            <a href="#">Email <span class="d">→</span></a>
-          </nav>
-        </div>
-
-        <aside class="spec" aria-label="Profile specification">
-          <div class="spec-head"><span>Profile</span><span class="corner">+</span></div>
-          <dl>
-            <div class="row"><dt>Role</dt><dd>Frontend Engineer</dd></div>
-            <div class="row"><dt>Focus</dt><dd>Interfaces, performance, product</dd></div>
-            <div class="row"><dt>Stack</dt><dd>TypeScript · React · Next.js</dd></div>
-            <div class="row"><dt>Status</dt><dd><span class="on">●</span> Available for new work</dd></div>
-          </dl>
-        </aside>
+  <div class="hero">
+    <div class="stage">
+      <div class="monument" id="monument">
+        <h1 class="name">
+          <span class="mask"><span class="metal">Sahil</span></span>
+          <span class="mask"><span class="metal">Tandon</span></span>
+        </h1>
+        <div class="baseline" aria-hidden="true"></div>
       </div>
-    </section>
+    </div>
 
+    <div class="herofoot">
+      <p class="statement rise d3">
+        Frontend engineer. I build interfaces that <b>earn their place</b>:
+        engineered for performance, shaped by product judgment.
+      </p>
+      <nav class="links rise d4" aria-label="Links">
+        <a href="#">Resume <span class="d">↗</span></a>
+        <a href="#">LinkedIn <span class="d">↗</span></a>
+        <a href="#">GitHub <span class="d">↗</span></a>
+        <a href="#">Email <span class="d">→</span></a>
+      </nav>
+    </div>
+  </div>
+
+  <main class="wrap">
     <section class="log" aria-labelledby="log-head">
-      <div class="log-head"><span class="label" id="log-head">Writing — Log</span> <a href="#">All entries →</a></div>
+      <div class="log-head rise d5"><span class="label" id="log-head">Writing — Log</span> <a href="#">All entries →</a></div>
 
       <a class="entry" href="#">
         <span class="idx">001</span>
@@ -259,16 +246,48 @@
 
   <footer class="foot">
     <div class="wrap inner">
-      <span>Set in Oxanium · built with intent — <a href="#">RSS</a></span>
+      <span>Set in Oxanium · machined in CSS — <a href="#">RSS</a></span>
       <span>© 2026 Sahil Tandon</span>
     </div>
   </footer>
 
   <script>
     (function () {
-      var rm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)');
-      if (rm && rm.matches) return;
+      const root = document.documentElement;
+      const monument = document.getElementById('monument');
+      const reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduce) { root.style.setProperty('--gleam', '43%'); return; }
       document.body.classList.add('anim');
+
+      let gleam = 62, gTarget = 62;       // start with the gleam off to the side, sweeps in
+      let tx = 0, ty = 0, ttx = 0, tty = 0;
+      let lastMove = -9999;
+
+      window.addEventListener('pointermove', function (e) {
+        if (e.pointerType === 'touch') return;
+        lastMove = performance.now();
+        const w = window.innerWidth, h = window.innerHeight;
+        gTarget = (e.clientX / w) * 100;
+        ttx = ((e.clientY / h) - 0.5) * -5;   // tilt up/down (deg)
+        tty = ((e.clientX / w) - 0.5) * 7;    // tilt left/right (deg)
+      }, { passive: true });
+
+      function loop(now) {
+        if (now - lastMove > 1800) {                 // idle: a slow self-sweep so it's alive
+          gTarget = 50 + 30 * Math.sin(now / 2800);
+          ttx += (0 - ttx) * 0.04; tty += (0 - tty) * 0.04;
+        } else {
+          tx += (ttx - tx) * 0.07; ty += (tty - ty) * 0.07;
+        }
+        // ease tilt toward target every frame (covers idle decay too)
+        tx += (ttx - tx) * 0.07; ty += (tty - ty) * 0.07;
+        gleam += (gTarget - gleam) * 0.06;
+        root.style.setProperty('--gleam', gleam.toFixed(2) + '%');
+        monument.style.transform = 'rotateX(' + tx.toFixed(2) + 'deg) rotateY(' + ty.toFixed(2) + 'deg)';
+        requestAnimationFrame(loop);
+      }
+      requestAnimationFrame(loop);
     })();
   </script>
 </body>
